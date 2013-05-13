@@ -1,0 +1,63 @@
+/** MIXINS **/
+.inner-shadow () {
+
+}
+.radial-gradient (@position, @shape, @color-start, @color-end) {
+  background : -webkit-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -moz-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -ms-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -o-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : radial-gradient(@shape at @position, @color-start, @color-end);  
+}
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation:    @name @duration @delay @ease;
+  -ms-animation:     @name @duration @delay @ease;
+}
+
+.box-sizing (@type: border-box) {
+  -webkit-box-sizing: @type;
+  -moz-box-sizing:    @type;
+  box-sizing:         @type;
+}
+
+.transition (@transition) {
+  -webkit-transition: @transition;  
+  -moz-transition:    @transition;
+  -ms-transition:     @transition; 
+  -o-transition:      @transition;  
+}
+
+@-webkit-keyframes blinkingLogo {.blinkingLogoKeyframes;}
+@-moz-keyframes blinkingLogo {.blinkingLogoKeyframes;}
+@-ms-keyframes blinkingLogo {.blinkingLogoKeyframes;}
+@-o-keyframes blinkingLogo {.blinkingLogoKeyframes;}
+@keyframes blinkingLogo {.blinkingLogoKeyframes;}
+
+.blinkingLogoKeyframes () {
+  0%   {opacity: 0.2;}
+  25%  {opacity: 0.3;}
+  30%  {opacity: 0.6;}
+  70%  {opacity: 0.3;}
+  71%  {opacity: 0.4;}
+  72%  {opacity: 0.3;}
+  73%  {opacity: 0.4;}
+  80%  {opacity: 0.5;}
+  100%  {opacity: 0.2;}
+}
+
+/** MEDIA QUERY VARIABLES **/
+@desktop : ~"screen and (min-device-width: 1025px)";
+@iphone: ~"(max-device-width: 480px)";
+@ipad: ~"(min-width: 768px)";
+@portrait: ~"(orientation: portrait)";
+
+/** FONTS **/
+@cherrySwash: 'Cherry Swash';
+@droidSans : 'Droid Sans';
+ 
+ /** COLOR VARIABLES **/
+@jobb : rgba(64,138,208,0.85);
+@livsstil : rgba(121,102,178,0.85);
+@mat : rgba(135,178,0,0.85);
+@trening : rgba(229,84,44,0.85);

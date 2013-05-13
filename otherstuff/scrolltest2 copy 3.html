@@ -1,0 +1,1027 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Slider - Slider scrollbar</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <style>
+  @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
+  @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+  @font-face
+  {
+    font-family: heydings;
+    src: url(heydings_icons.ttf);
+  }
+  html{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    background-color: #e3e3e3;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;    
+  }
+  .scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    white-space:nowrap;
+}
+.scroll-container {
+  height: 100%;
+}
+#titlebox {
+  display: none;
+  color: white;
+  position: fixed;
+  background-color: #595b5a;
+  height: 100%;
+  left: 0px;
+  z-index: 100;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+#titlebox>h1 {
+
+}
+.innercontainer {
+  width: 1000000px;
+  overflow:scroll;
+  height: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-left: 4px;
+}
+.chunk { 
+    display: inline-block;
+    width: 590px;
+    -moz-column-count: 2;
+    -moz-column-gap: 50%;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 5px;
+    column-count: 2;
+    column-gap: 50%;
+    height: 100%;
+}  
+
+.child{
+    width: 100%;       
+    height: 50%;
+    cursor: pointer;
+    display:inline-block;
+    *display:inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align: top;
+    z-index: 0;
+    margin :0;
+    overflow: hidden;        
+}
+.child:nth-child(even) {
+  height: 49%;
+  margin-top: 1%;
+}
+
+
+.child:nth-child(4n+1) .inner .cloak {
+  background-color    : #27AE60;
+}
+.child:nth-child(4n+1) .inner .cloak .bubble {
+  background-color    : #27AE60;
+}
+.child:nth-child(4n+1) .inner .cloak2 .bubble2 {
+  background-color    : #27AE60;
+} 
+.child:nth-child(4n+1) .open-article-button {  
+  color               : #27AE60;
+  background-color    : #27AE60;
+}
+
+.child:nth-child(4n+1) .inner .cloak2 {
+  background-color    : #27AE60;
+}  
+.child:nth-child(4n+2) .inner .cloak {
+  background-color    : #2980B9;
+}
+.child:nth-child(4n+2) .inner .cloak .bubble {
+  background-color    : #2980B9;
+}
+.child:nth-child(4n+2) .inner .cloak2 .bubble2 {
+  background-color    : #2980B9;
+} 
+.child:nth-child(4n+2) .open-article-button {  
+  color               : #2980B9;
+  background-color    : #2980B9;
+}
+.child:nth-child(4n+2) .inner .cloak2 {
+  background-color    : #2980B9;
+}  
+.child:nth-child(4n+3) .inner .cloak {
+  background-color    : #8E44AD;
+}
+.child:nth-child(4n+3) .inner .cloak .bubble {
+  background-color    : #8E44AD;
+}
+.child:nth-child(4n+3) .inner .cloak2 .bubble2 {
+  background-color    : #8E44AD;
+}
+.child:nth-child(4n+3) .open-article-button {  
+  color               : #8E44AD;
+  background-color    : #8E44AD;
+}
+.child:nth-child(4n+3) .inner .cloak2 {
+  background-color    : #8E44AD;
+}  
+.child:nth-child(4n+4) .inner .cloak {
+  background-color    : #2C3E50;
+}
+.child:nth-child(4n+4) .inner .cloak .bubble {
+  background-color    : #2C3E50;
+}
+.child:nth-child(4n+4) .inner .cloak2 .bubble2 {
+  background-color    : #2C3E50;
+}
+.child:nth-child(4n+4) .open-article-button {  
+  color               : #2C3E50;
+  background-color    : #2C3E50;
+}
+.child:nth-child(4n+4) .inner .cloak2 {
+  background-color    : #2C3E50;
+}
+
+.child:nth-child(4n+1) .inner {
+  background-color    : #2ECC71;
+}
+.child:nth-child(4n+2) .inner {
+  background-color    : #3498DB;
+}
+.child:nth-child(4n+3) .inner {
+  background-color    : #9B59B6;
+}
+.child:nth-child(4n+4) .inner {
+  background-color    : #34495E;
+}
+
+ .inner{
+  background-color:white;
+  position:relative;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: width 80ms, height 80ms, box-shadow 80ms, margin-left 80ms, margin-top 80ms, box-shadow 80ms;
+ }
+ .cloak, .cloak2 {
+  position: absolute;
+  width: 100%;
+  z-index: 110;
+  transition: all 100ms linear;
+ }
+.cloak {
+  top: 0px;
+  height: 50%;
+}
+.cloak2 {
+  bottom: 0px;
+  height: 50%;
+}
+ .open-article-button {
+  cursor: pointer;
+  position: relative;
+  z-index: 111;
+  margin: 0 auto;
+  margin-top: 10%;
+  display: block;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 60px;
+  font-size: 1em;
+  width: 90px;
+  height: 90px;  
+  background-color: rgba(255, 255, 255, .0);
+  transition: background-color 200ms 100ms, box-shadow 200ms 100ms;
+ }
+ .inner:hover .open-article-button {
+  background-color: #FFFFFF;
+  box-shadow: 0px 1px 1px 10px rgba(255, 255, 255, .5);
+ }
+ .chunk .child .inner .open-article-button:hover {
+  box-shadow: 0px 1px 1px 20px rgba(255, 255, 255, .5);
+ }
+ .inner:hover article>h1,
+ .inner:hover article>h2 {
+  color: white;
+ }
+
+ .inner:hover .cloak {
+  height: 35%;
+ }
+ .inner:hover .cloak2 {
+  height: 7%;
+ }
+
+ .inner:hover .bubble,
+ .inner:hover .bubble2 {
+  border-radius: 60px;
+ }
+ #controller_container {
+  vertical-align:middle;
+  top: 50%;
+  position: fixed;
+  z-index: 200;
+  right: 0px;
+  width: 240px;
+  height: 400px;
+  margin-top: -200px;
+  z-index: 200;
+  -webkit-perspective: 1000px;
+}
+#controller_rightbuttonbox,
+#controller_leftbuttonbox {
+  position: relative;
+  top: 50%;
+  margin-top: -30px;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #7F8C8D;
+  float:right;
+  width: 80px;
+  height: 80px;
+  -webkit-transform-style: preserve-3d;  
+  -webkit-transform-origin: right;
+}
+#controller_rightbuttonbox {
+  -webkit-transition: all 150ms ease 150ms;
+  -webkit-transform: rotateY(-105deg);
+
+}
+#controller_leftbuttonbox {
+  -webkit-transition: all 150ms ease;
+  -webkit-transform: rotateY(-92.3deg);
+}
+#controller_container:hover #controller_rightbuttonbox {
+  -webkit-transform: rotateY(0deg);
+  -webkit-transition: all 150ms ease;
+}
+
+#controller_container:hover #controller_leftbuttonbox {
+  -webkit-transform: rotateY(0deg);
+  -webkit-transition: all 150ms ease 150ms;
+}
+#leftbutton, 
+#rightbutton {
+  margin: 0 auto;
+  border-radius: 40px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 2em;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: #34495E;
+
+}
+#leftbutton:hover, 
+#rightbutton:hover {
+  background-color: #2C3E50;
+  box-shadow: 0px 1px 1px 10px rgba(255, 255, 255, .5);
+  transition: all 380ms;
+}
+#leftbutton:active, 
+#rightbutton:active {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  transition: all 380ms;
+}
+
+.inner article {
+
+}
+.inner article h1 {
+  text-align: center;
+  position: relative;
+  font-family: 'Cherry Swash', cursive;
+  color: #FFFFFF;
+  font-weight: normal;
+  letter-spacing: 0pt;
+  font-size: 23px;
+  line-height: 23px;
+  margin: 0px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 125;
+  transition: all 200ms linear;
+}
+.inner article h2 {
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 20px; 
+  opacity: 0.6;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  position: relative;
+  z-index: 125;
+  transition: all 200ms linear;
+}
+.inner article img {
+  position:relative;
+  width: 100%;
+}
+.inner article p {
+  display: none;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px;
+  margin: 0px;
+}
+.button-container {
+  display: none;
+}
+.bubble{
+  position:relative;
+  width: 25%;
+  height: 100px;
+  float: left;
+  border-radius: 0px;
+  bottom: 0;
+  top: 100%;
+  margin-top: -50px;
+  transition: border-radius 100ms 75ms;
+}
+.bubble2{
+  position:relative;
+  width: 25%;
+  height: 100px;
+  float: left;
+  border-radius: 0px;
+  top: 0;
+  margin-top: -50px;
+  transition: all 300ms linear;
+}
+#article {
+  left: 0;
+  top: 0;
+  position: fixed;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  background: rgba(0, 0, 0, .8);
+}
+#article .cloak,
+#article .cloak2 {
+  display: none;
+}
+#article article {
+  position: relative;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  max-width: 900px;
+  padding: 40px;
+  margin: 0 auto;
+  color: black;
+  overflow:auto;
+  box-sizing: border-box;
+  cursor: default;
+}
+#article .open-article-button {
+  display: none;
+}
+#article article h1,
+#article article h2 {
+  color: black;
+}
+#article article h1 {
+  font-size: 60px;
+  line-height: 60px;
+}
+#article article h2 {
+  margin-bottom: 40px;
+}
+#article article p {
+  display: block;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#article a {
+}
+#article .button-container {
+  display: block;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #C0392B;
+}
+.button-container button {
+  border-radius : 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #E67E22;
+  border: 0;
+  color: #FFFFFF;
+}
+.button-container button:hover {
+  background-color: #D35400;
+}
+.button-container .prev-button {
+  float: left;
+}
+.button-container .next-button {
+  float: right;
+}
+ </style>
+  <script>
+  </script>
+</head>
+<body>
+  <div class="scroll-container">
+    <div id="controller_container">
+      <div id="controller_rightbuttonbox">
+          <button id="rightbutton">></button>
+      </div>
+      <div id="controller_leftbuttonbox">
+          <button id="leftbutton"><</button>
+      </div>      
+    </div>
+    <div id="titlebox"><h1>Heisannsss</h1></div>
+
+    <div class="innercontainer">
+
+      <div class="chunk"> <!-- start of chunk !-->
+
+        <div class="child">
+          <div id="" class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>              
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              
+            </div>
+
+            <article>
+              <div class="button-container">
+                  <button class="prev-button">
+                    Previous article
+                  </button>                  
+                  <button class="close-button">
+                    Close article
+                  </button>
+                  <button class="next-button">
+                    Next article
+                  </button>
+              </div>
+              <h1>Hack#1 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>            
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>                            
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+
+              <h1>Hack#2 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#3 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#4 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+      </div> <!-- end of chunk !-->
+
+      <div class="chunk"> <!-- start of chunk !-->
+
+        <div class="child">
+          <div id="" class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>              
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+            </div>
+
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                  
+                </ul>
+              </div>
+              <h1>Hack#5 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>                            
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#2 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#3 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#1 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <button class="open-article-button">Åpne meg</button>            
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+      </div> <!-- end of chunk !-->
+
+      <div class="chunk"> <!-- start of chunk !-->
+
+        <div class="child">
+          <div id="" class="inner">            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+            </div>
+
+            <article>
+              <div class="button-container">
+                  <button class="prev-button">
+                    Previous article
+                  </button>                  
+                  <button class="close-button">
+                    Close article
+                  </button>
+                  <button class="next-button">
+                    Next article
+                  </button>
+              </div>
+              <h1>Hack#1 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>                            
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#2 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#3 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="child">
+          <div class="inner">
+            <div class="cloak2">
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>
+              <div class="bubble2"></div>                 
+            </div>            
+            <div class="cloak">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>              
+            </div>
+            <article>
+              <div class="button-container">
+                <ul>
+                  <li class="prev-button">
+                    <a><</a>
+                  </li>                  
+                  <li class="close-button">
+                    <a>x</a>
+                  </li>
+                  <li class="next-button">
+                    <a>></a>
+                  </li>                   
+                </ul>
+              </div>
+              <h1>Hack#4 - This is my article, it takes up two lines</h1>
+              <h2>April 10, 2013</h2>
+              
+              <p>
+                Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+              </p>
+            </article>
+          </div>
+        </div>
+
+      </div> <!-- end of chunk !-->
+
+
+    </div>
+  </div>  
+ <script>
+  function moveContainer(move) {
+    var container = $(".innercontainer");
+    var widthOfBrowser = $(window).width();
+    var marginLeft = parseInt(container.css('margin-Left'));
+    var containerWidth = parseInt(container.css('width'));
+    var containerMarginStartingPosition = 0; // starting position for margin-left
+    var containerMarginLeft = parseInt(container.css('margin-left'));
+    var elementWidth = parseInt($('.inner').css('width'));
+    var numberOfElements = $('.chunk').length;
+    var titlebox = parseInt($('.titlebox').css('width'));
+    var elementMarginRight = parseInt($('.child').css('margin-right'));
+    var endMargin = widthOfBrowser - (652*numberOfElements) - 15; // Add 15 pixels for prettiness
+    if(move) {
+      if(endMargin < marginLeft) { // Restrict scroll if we are at the end of the container
+        if((marginLeft-elementWidth) > endMargin) {
+          container.animate({marginLeft: '-=' + elementWidth +'px'}, 400, function () {});  
+        } else {
+          // scroll to the end of the div
+          container.animate({marginLeft: endMargin + 'px'}, 400);  
+        }
+      }
+    } else {
+      if(marginLeft < containerMarginStartingPosition) {
+        if(marginLeft+elementWidth <= containerMarginStartingPosition) {
+          container.animate({marginLeft: '+=' + elementWidth +'px'}, 400);  
+        } else {
+          container.animate({marginLeft: containerMarginStartingPosition + 'px'}, 400);  
+        }
+        
+      }
+    };
+  }
+  function seeIfWeHaveANextChunk(current) {
+    current.parent().parent().parent().parent().next().find('.inner:first').attr("id", "article");
+  }
+  function hideArticles() {
+    $('.inner').attr("id", "");
+  }
+  function wiggleContainer(wiggle) {
+  }
+  $("body").on("click", "#leftbutton", function(event){
+    console.log($(this));
+    moveContainer(false);
+  }).on("click", "#rightbutton", function(event){
+    console.log($(this));
+    moveContainer(true);
+  }).on("click", ".open-article-button", function(event){
+    $(this).parent().parent().attr("id", "article");
+  }).on("click", ".close-button", function(event){
+    $(this).parent().parent().parent().attr("id", "");
+  }).on("click", ".next-button", function(event){
+    hideArticles();
+    $(this).parent().parent().parent().parent().next().find('.inner').attr("id", "article");
+    if($(this).parent().parent().parent().parent().next().find('.inner').length == 0) {
+      seeIfWeHaveANextChunk($(this));
+    }
+  }).on("click", ".prev-button", function(event){
+    hideArticles();
+    $(this).parent().parent().parent().parent().prev().find('.inner').attr("id", "article");
+  });
+  (function($) {
+    $(window).scroll( function() {
+        $(window).scrollLeft(0);
+    });
+  })(jQuery);
+  </script>
+</body>
+</html>

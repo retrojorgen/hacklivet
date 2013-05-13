@@ -1,0 +1,369 @@
+  @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
+  @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+html{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #444;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: auto;    
+}
+.content-wrapper {
+  position: relative;
+  box-shadow: 0 10px 30px 10px #222;
+  background-color: #e3e3e3;
+}
+#titlebox {
+  display: none;
+  color: white;
+  position: fixed;
+  background-color: #595b5a;
+  height: 100%;
+  left: 0px;
+  z-index: 100;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+#titlebox>h1 {
+
+}
+.article-wrapper {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.child {
+    cursor: pointer;
+    *display:inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align: top;
+    z-index: 0;
+    overflow: hidden;
+    margin-top: 2%;
+    box-shadow: 1px 1px 5px 0.2px #BBB;
+}
+/** Block specific css **/
+  
+  /** start Block jobb **/
+  .child.jobb { background-color    : #B259A8; }
+  /** end Block jobb **/
+
+  /** start Block hjemme **/
+  .child.hjemme { background-color    : #48B3CC; }
+  /** end Block hjemme **/
+
+  /** start Block mat **/
+  .child.mat { background-color    : #87B200; }
+  /** end Block mat **/
+
+  /** start Block livsstil **/
+  .child.livsstil { background-color    : #7966B2; }
+  /** end Block livsstil **/
+
+  /** start Block ferie **/
+  .child.ferie { background-color    : #E59E00; }
+  /** end Block ferie **/
+
+  /** start Block trening **/
+  .child.trening { background-color    : #E5542C; }
+  /** end Block trening **/  
+
+/** end Block specific css **/
+
+article h1 {
+  text-align: left;
+  position: relative;
+  font-family: 'Cherry Swash', cursive;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0pt;
+  font-size: 2em;
+  line-height: 1em;
+  margin: 0px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 125;
+  text-shadow:2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 200ms linear;
+}
+article h2 {
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 20px; 
+  opacity: 0.6;
+  padding-top: 10px;
+  padding-left: 20px;  
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  position: relative;
+  z-index: 125;
+  transition: all 200ms linear;
+}
+article img {
+  position:relative;
+  width: 100%;
+}
+article p {
+  display: none;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px;
+  margin: 0px;
+}
+#article {
+  position: fixed;
+  top:0;
+  left: 0;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  background: rgba(0, 0, 0, .8);
+}
+#article article {
+  position: relative;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  color: black;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  cursor: default;
+}
+#article .open-article-button {
+  display: none;
+}
+#article h1,
+#article h2 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#article article h1,
+#article article h2 {
+  color: black;
+}
+#article article h1 {
+  margin-top: 95px;
+  font-size: 60px;
+  line-height: 60px;
+}
+#article article h2 {
+  margin-bottom: 40px;
+}
+#article article p {
+  display: block;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+#article a {
+}
+#article .button-container {
+  position: fixed;
+  top: 0;
+  display: block;
+  z-index: 500;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  background-color: #C0392B;
+  box-sizing: border-box;
+}
+.button-container button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #C0392B;
+  font-size: 1.5em;
+  text-shadow:2px 2px rgba(0, 0, 0, 0.2);
+  border: 0;
+  color: #FFFFFF;
+}
+.button-container button:hover {
+  background-color: #E74C3C;
+}
+.button-container button:active {
+  background-color: #E74C3C;
+}
+.button-container {
+  display: none;
+}
+
+/* start logo box */
+.top-menu {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #EEF0F0;
+  text-align: center;
+  vertical-align: middle; 
+}
+.hack-livet-logo {
+  width: 50%;
+  margin-top: 20px;
+}
+.hack-livet-tagline {
+  display: block;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* end logo box */
+/* helper classes */
+.hidden {
+  display: none;
+}
+
+.right-menu-container {
+  position: fixed;
+  width: 50%;
+  z-index: 0;
+  background-color: #444;
+  color: #FFFFFF;
+  height: 100%;
+  right: 0;
+}
+.right-menu-container ul {
+  float: right;
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.right-menu-container ul li button {
+  padding: 20px;
+  background-color: transparent;
+  border : 0;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Droid sans';
+  font-size: 16px;
+}
+.right-menu-container ul li {
+  cursor: pointer;
+  border-bottom: 1px solid #777;
+}
+.right-menu-container ul li:first-child {
+  padding: 20px;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 20px;
+}
+.right-menu-container ul li:hover {
+  background-color: #555;
+}
+.right-menu,
+.right-menu-selected
+ {
+  float: right;
+  padding: 20px;
+  border: 0;
+  margin: 0;
+}
+.left-menu {
+  float: left;
+}
+
+/* start Media queries */
+  /* iPad Landscape */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .card-flip {
+      -webkit-transition: all 500ms 0ms linear;
+    }
+  }
+  /* iPad Portrait */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  }
+  /* iPhone v(*) portrait */
+  @media all and (max-device-width: 480px) and (orientation: portrait)  {
+    .hack-livet-logo {
+        width: 95%;
+      }
+    article h1 {
+      font-size: 4.5em;
+      line-height: 1.2em;
+    }
+    article h2 {
+      font-size: 2em;
+    }
+    .child {
+      margin-bottom: 40px;
+    }
+    #article article {
+      width: 100%;
+    }
+    #article .inner article h1 {
+      font-size: 6.5em;
+      line-height: 1.2em;
+    }
+    #article h2 {
+      font-size: 50px;
+    }
+    #article p {
+      font-size: 3.2em;
+      line-height: 1.4em;
+    }
+    #article .button-container button {
+      font-size: 3.2em;
+      padding: 10px;
+    }
+    .hack-livet-tagline {
+      font-size: 2.0em;
+    }
+      .right-menu-container ul li button {
+    padding: 60px;
+    background-color: transparent;
+    border : 0;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Droid sans';
+    font-size: 2.5em;
+    }
+    .right-menu-container ul li {
+      cursor: pointer;
+      border-bottom: 1px solid #777;
+    }
+    .right-menu-container ul li:first-child {
+      padding: 20px;
+      font-family: 'Cherry Swash', cursive;
+      font-size: 4em;
+    }
+    .header-button-group {
+      display: none;
+    }
+  }
+
+   
+  /* iPhone v(*) landscape */
+  @media all and (max-device-width: 480px) and (orientation: landscape)  {
+    .hack-livet-logo {
+        width: 80%;
+      }
+    article h1 {
+      font-size: 4em;
+      line-height: 1em;
+    }
+  }  
+  /* Desktop */
+  @media only screen and (min-width: 1025px) { 
+  }
+/* end Media queries */ 

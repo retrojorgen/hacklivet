@@ -20,72 +20,52 @@ body {
   font-family: @droidSans;    
 }
 
+
+
 .content-wrapper {
   position: relative;
   background-color: #FFFFFF;
+  height: 100%;
 
-  .top-menu {
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #151426;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-    @media @desktop {
+.top-menu {
+  position: absolute;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #151426;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0;
+  height: 60px;
+  margin-top: 370px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
+  background-color: #FFFFFF;
+  z-index: 400;
+  display: block;
+
+  @media @desktop {
+    padding: 0;
+  }
+  .top-menu-centered {
+    margin: 0 auto;
+    display: inline-block;
+
+    .hack-livet-logo {
       padding: 0;
-    }
-    .hack-livet-logo-flat {
-      width: 50%;
-      margin-left: 30px;
+      margin: 0;
+      display: inline;
+      color: rgba(0,0,0,1);
+      font-family: @cherrySwash;
+      font-weight: normal;
+      letter-spacing: -2px;
+      float: left;
+      //.animation(colorcycle, 10s, 0, infinite);
       @media @desktop {
-        display: none;
-      }      
-    }
+        font-size: 3em;
 
-    .hack-livet-logo-standing {
-      display: none;
-      @media @desktop {
-        display: inline-block;
-        max-width: 150px;
-        opacity: 0.5;
-        padding-top: 0;
-        padding-left: 100px;
-        padding-right: 100px;
-        padding-bottom: 40px;
-        margin-left: -400px;
-        .radial-gradient(center, ellipse cover, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 60%);
-        .animation(blinkingLogo, 10s, 0, infinite);
-      }
-    }
-
-    .hack-livet-tagline {
-      display: none;
-
-      @media @desktop {
-        text-align: left;
-        display: block;
-        position: absolute;
-        width: 400px;
-        color: #57556d;
-        font-family: @cherrySwash, cursive;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 1.618em;
-        letter-spacing: 1.5px;
-        font-style: italic;
-        margin-bottom: 20px;        
-        left: 50%;
-        margin-left: -80px;
-        margin-top: 80px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #43425a;
-      }
-      span {
-        color: #FFFFFF;
-      }      
+      }    
     }
 
     .open-slide-menu {
@@ -93,24 +73,31 @@ body {
       padding: 0;
       margin: 0;
       background-color: transparent;
-      float: right;
-      height: 30px;
-      width: 30px;
-      display: inline-block;
-      background-image : url(../img/icon/open-slide-menu.svg);
-      background-size: 30px 30px;
+      height: 60px;
+      width: 60px;
+      display: inline;
+      background: url(../img/icon/open-slide-menu.svg) no-repeat;
+      background-size: 60%;
+      background-position: 0 50%;
       opacity: 0.5;
-    }         
-  }
+      float: left;
+      cursor:pointer;      
+    }
+  }         
+}
 
   .article-wrapper {
     max-width: 900px;
     width: 90%;
     margin: 0 auto;
     padding: 15px;
+    text-align: center;
 
     @media @desktop {
-      padding: 40px;
+      padding: 0px;
+      width: 100%;
+      max-width:100%;
+      background-color: rgb(240, 240, 240);
     }
 
     &.left-wipe {
@@ -128,88 +115,130 @@ body {
       vertical-align: top;
       z-index: 0;
       overflow: hidden;
-      margin-bottom: 20px;
-      
-      overflow: hidden;
       position: relative;
       width: 100%;
+
+      &:hover {
+        .child-overlay {
+          box-shadow: 0px 0px 50px 30px rgba(0,0,0,0.15)  inset;
+          background-color: rgba(64, 138, 208, 0.0);
+          .transition(box-shadow 100ms linear 0s);
+        }
+        article {
+          .animation(jumphover, 200ms, 0s, ease, forwards);
+        }
+      }
+
       @media @desktop {
-        width: 48%;
+        height: 270px;
+        width: 30%;
         display: inline-block;
         margin-left: 1%;
 
         &:nth-child(1),
-        &:nth-child(1),
-        &:nth-child(1) {
-          article {
-            padding: 20px;
-          }
-        }
-
-        &:nth-child(1) {
-          margin-bottom: 0;
-          width: 100%;
-          margin-left: 0;
-          article { 
-            h1 {
-              font-size : 3.5em;
+        &:nth-child(2),
+        &:nth-child(3) {
+          height: 370px;
+          float: left;
+          article{
+            p {
+              display: none;
             }
           }
         }
-        &:nth-child(2) {
-          margin-bottom: 0;
-          float: left;
-          width: 50%;
-          margin-left: 0;
+
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+          margin-top: 100px;
         }
+
+        &:nth-child(1) {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          width: 33%;
+        }
+
+        &:nth-child(2) {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          width: 34%;
+        }
+
         &:nth-child(3) {
-          margin-bottom: 0;
-          width: 50%;
-          margin-left: 0;
-        }        
-      }
+          position: relative;
+          margin: 0;
+          padding: 0;
+          width: 33%;
+        }
 
-      article {
-        box-shadow: 0px 0px 30px 30px rgba(0,0,0,0.15)  inset;
-        @media @desktop {
-          box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.10)  inset;
-
-          .box-sizing(border-box);
-          .transition(box-shadow 100ms linear 0);
-          &:hover{
-            box-shadow: 0px 0px 50px 30px rgba(0,0,0,0.15)  inset;
-            .transition(box-shadow 100ms linear 0);
+        &:nth-child(1n+4) {
+          height: auto;
+          background-color: #FFFFFF;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          .article-header {
+            width: 100%;
+            height: auto;
+            left: 0;
+            margin-left: 0;
+            position:relative;
           }
-        }        
+          .child-overlay {
+            display: none;
+          }
+          article {
+            height: auto;
+            position:relative;
+            bottom: auto;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 0 rgba(255,255,255,1);
+            margin-bottom: 20px;
+            h1 {
+              color: rgba(0,0,0,0.6);
+            }
+            h2 {
+              color: rgba(0,0,0,0.4);
+            }
+            p {
+              display: none;
+
+              &:first-of-type {
+                
+                color: rgba(0,0,0,0.5);
+                display: block;
+                line-height: 1.4em;
+                height:10em;
+                overflow: hidden;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding-top: 22px;
+                border-top: 1px solid rgba(0,0,0,0.1);
+
+                &:after {
+                  content: "";
+                  text-align: center;
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 4.8em;
+                  background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 18%, rgba(255,255,255,0) 100%);                 
+                }
+              }
+            }
+          }
+        }                
       }
-      
       .child-overlay {
         position: absolute;
         width: 100%;
         height: 100%;
-      }
-
-      &.jobb {
-        .child-overlay { 
-          background-color    : @jobb;
-        }  
-      }
-
-      &.livsstil {        
-        .child-overlay { 
-          background-color    : @livsstil;         
-        }
-      }
-
-      &.mat {      
-        .child-overlay { 
-          background-color    : @mat;         
-        }
-      }
-
-      &.trening {       
-        .child-overlay { 
-          background-color    : @trening;         
+        @media @desktop {
+          box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.10)  inset;
+          .transition(box-shadow 100ms linear 0s);
         }
       }
 
@@ -265,13 +294,18 @@ body {
       }
 
       article {
-        height: 100%;
         width: 100%;
-        margin-top: 0;
+        height: 100%;
         position: absolute;
+        box-shadow: 0px 0px 30px 30px rgba(0,0,0,0.15)  inset;
+
         @media @desktop {
-          position: relative;
+          height: auto;
+          bottom: 0;
+          .box-sizing(border-box);
+          background-color: @tab-background;
         }        
+        
 
         h1 {
           position: relative;
@@ -285,8 +319,9 @@ body {
           line-height: 1em;
           z-index: 125;
           text-shadow:2px 2px rgba(0, 0, 0, 0.2);
+
           @media @desktop {
-            font-size: 2.5em;
+            font-size: 2em;
             padding-left: 40px;
             padding-right: 40px;
             line-height: 1.2em;
@@ -314,10 +349,8 @@ body {
           width: 100%;
         }
         p {
-          display: none;
           font-size: 16px;
           line-height: 25px;
-          padding: 10px;
           margin: 0px;
         }
       }
@@ -327,26 +360,26 @@ body {
         position: absolute;
         z-index: 0;
         @media @desktop {
-          width: 100%;
-          height: auto;
-          margin-left: 0;
+          width: auto;
+          height: 105%;
+          left: -50%;
         }
       }
     }    
   }
 }
 
-.right-menu-container {
+.left-menu-container {
   position: fixed;
   width: 50%;
   z-index: 0;
   background-color: #444;
   color: #FFFFFF;
   height: 100%;
-  right: 0;
+  left: 0;
 
   ul {
-    float: right;
+    float: left;
     list-style: none;
     display: block;
     padding: 0;
@@ -387,3 +420,29 @@ body {
 }
 
 
+/** Color specific changes **/
+/** No inheritance because of specificity **/
+
+.jobb {
+  .child-overlay { 
+    background-color    : @jobb;
+  }  
+}
+
+.livsstil {        
+  .child-overlay { 
+    background-color    : @livsstil;         
+  }
+}
+
+.mat {      
+  .child-overlay { 
+    background-color    : @mat;         
+  }
+}
+
+.trening {       
+  .child-overlay { 
+    background-color    : @trening;         
+  }
+}

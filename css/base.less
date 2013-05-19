@@ -9,11 +9,11 @@
   background : -o-radial-gradient(@position, @shape, @color-start, @color-end);
   background : radial-gradient(@shape at @position, @color-start, @color-end);  
 }
-.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
-  -webkit-animation: @name @duration @delay @ease;
-  -moz-animation:    @name @duration @delay @ease;
-  -ms-animation:     @name @duration @delay @ease;
-  animation:         @name @duration @delay @ease;
+.animation (@name, @duration: 300ms, @delay: 0s, @ease: ease, @fill-mode: none) {
+  -webkit-animation: @name @duration @delay @ease @fill-mode;
+  -moz-animation:    @name @duration @delay @ease @fill-mode;
+  -ms-animation:     @name @duration @delay @ease @fill-mode;
+  animation:         @name @duration @delay @ease @fill-mode;
 }
 
 .box-sizing (@type: border-box) {
@@ -35,6 +35,24 @@
 @-o-keyframes blinkingLogo {.blinkingLogoKeyframes;}
 @keyframes blinkingLogo {.blinkingLogoKeyframes;}
 
+@-webkit-keyframes colorcycle {.colorcycleKeyframes;}
+@-moz-keyframes colorcycle {.colorcycleKeyframes;}
+@-ms-keyframes colorcycle {.colorcycleKeyframes;}
+@-o-keyframes colorcycle {.colorcycleKeyframes;}
+@keyframes colorcycle {.colorcycleKeyframes;}
+
+@-webkit-keyframes jumphover {.jumphoverKeyframes;}
+@-moz-keyframes jumphover {.jumphoverKeyframes;}
+@-ms-keyframes jumphover {.jumphoverKeyframes;}
+@-o-keyframes jumphover {.jumphoverKeyframes;}
+@keyframes jumphover {.jumphoverKeyframes;}
+
+
+.jumphoverKeyframes () {
+  50%  {padding-top: 30px;}
+  100% {padding-top: 10px;}
+}
+
 .blinkingLogoKeyframes () {
   0%   {opacity: 0.2;}
   25%  {opacity: 0.3;}
@@ -45,6 +63,12 @@
   73%  {opacity: 0.4;}
   80%  {opacity: 0.5;}
   100%  {opacity: 0.2;}
+}
+
+.colorcycleKeyframes () {
+  25%  {
+    letter-spacing: -5px;
+  }
 }
 
 /** MEDIA QUERY VARIABLES **/
@@ -58,7 +82,8 @@
 @droidSans : 'Droid Sans';
  
  /** COLOR VARIABLES **/
-@jobb : rgba(64,138,208,0.95);
-@livsstil : rgba(121,102,178,0.95);
-@mat : rgba(135,178,0,0.95);
-@trening : rgba(229,84,44,0.95);
+@jobb : rgba(64,138,208,0.55);
+@livsstil : rgba(121,102,178,0.55);
+@mat : rgba(135,178,0,0.55);
+@trening : rgba(229,84,44,0.55);
+@tab-background : rgba(0,0,0,0.5);

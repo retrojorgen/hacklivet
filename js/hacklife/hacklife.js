@@ -44,19 +44,20 @@ var hacklife = {
   },
   bindUIElements : function () {
     hacklife.el.openArticleButton.on("click", hacklife.addArticleID);
-    hacklife.el.contentWrapper.hammer().on("swipeleft", hacklife.changeMarginRight);
+    hacklife.el.contentWrapper.hammer().on("swipeleft", hacklife.resetMarginLeft);
     hacklife.el.contentWrapper.hammer().on("swiperight", hacklife.changeMarginLeft);
-    hacklife.el.openSlideMenu.on("click", hacklife.changeMarginRight);
+    hacklife.el.openSlideMenu.on("click", hacklife.changeMarginLeft);
+    hacklife.el.contentWrapper.on("click", hacklife.resetMarginLeft);
   },
-  changeMarginRight : function (ev) {
-    if(parseInt(hacklife.el.contentWrapper.css("right")) > 0) {
-      hacklife.el.contentWrapper.animate({right:'0px'}, 50);  
-    } else {
-      hacklife.el.contentWrapper.animate({right:'150px'}, 50);
-    }      
+  resetMarginLeft : function (ev) {      
+    hacklife.el.contentWrapper.css('left','0px');
   },
   changeMarginLeft : function (ev) {
-    hacklife.el.contentWrapper.css('right','0px');
+    if(parseInt(hacklife.el.contentWrapper.css("left")) > 0) {
+      hacklife.el.contentWrapper.animate({left:'0px'}, 50);  
+    } else {
+      hacklife.el.contentWrapper.animate({left:'150px'}, 50);
+    }    
   },
   addRightWipeClass : function () {
     hacklife.el.contentWrapper.addClass(hacklife.gvar.wipeContentWrapperRright).removeClass(hacklife.gvar.hideWipeContentWrapperRright);

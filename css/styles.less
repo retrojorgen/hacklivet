@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-@import "base.less";
+@import "_base.less";
 
 
 html{
@@ -20,6 +20,13 @@ body {
   font-family: @droidSans;    
 }
 
+a {
+  color: #000000;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 
 .content-wrapper {
@@ -27,64 +34,7 @@ body {
   background-color: #FFFFFF;
   height: 100%;
 
-.top-menu {
-  position: absolute;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #151426;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  margin: 0;
-  height: 60px;
-  margin-top: 370px;
-  box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
-  background-color: #FFFFFF;
-  z-index: 400;
-  display: block;
-
-  @media @desktop {
-    padding: 0;
-  }
-  .top-menu-centered {
-    margin: 0 auto;
-    display: inline-block;
-
-    .hack-livet-logo {
-      padding: 0;
-      margin: 0;
-      display: inline;
-      color: rgba(0,0,0,1);
-      font-family: @cherrySwash;
-      font-weight: normal;
-      letter-spacing: -2px;
-      float: left;
-      //.animation(colorcycle, 10s, 0, infinite);
-      @media @desktop {
-        font-size: 3em;
-
-      }    
-    }
-
-    .open-slide-menu {
-      border: 0;
-      padding: 0;
-      margin: 0;
-      background-color: transparent;
-      height: 60px;
-      width: 60px;
-      display: inline;
-      background: url(../img/icon/open-slide-menu.svg) no-repeat;
-      background-size: 60%;
-      background-position: 0 50%;
-      opacity: 0.5;
-      float: left;
-      cursor:pointer;      
-    }
-  }         
-}
+  @import "_top_menu.less";
 
   .article-wrapper {
     max-width: 900px;
@@ -99,14 +49,6 @@ body {
       max-width:100%;
       background-color: rgb(240, 240, 240);
     }
-
-    &.left-wipe {
-      left: 300px;
-    }
-    &.right-wipe {
-      right: 300px;
-    }
-
 
     .child {
       cursor: pointer;
@@ -138,19 +80,18 @@ body {
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
-          height: 370px;
+          height: 400px;
           float: left;
           article{
+            h1 {
+              a {
+                color: #FFFFFF;
+              }
+            }
             p {
               display: none;
             }
           }
-        }
-
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6) {
-          margin-top: 100px;
         }
 
         &:nth-child(1) {
@@ -206,7 +147,6 @@ body {
               display: none;
 
               &:first-of-type {
-                
                 color: rgba(0,0,0,0.5);
                 display: block;
                 line-height: 1.4em;
@@ -230,6 +170,25 @@ body {
               }
             }
           }
+        }
+        &:nth-child(4) {
+          width: 93%;
+          margin-left: 1%;
+          margin-top: 90px;
+          .article-header {
+            width: auto;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+          }
+          article {
+            float: left;
+            width: 50%;
+          }
+        }
+        &:nth-child(8),
+        &:nth-child(9) {
+          width: 45.5%;
         }                
       }
       .child-overlay {
@@ -240,57 +199,6 @@ body {
           box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.10)  inset;
           .transition(box-shadow 100ms linear 0s);
         }
-      }
-
-      &#article {
-        position: absolute;
-        top:0;
-        left: 0;
-        margin-top: 0px;
-        margin-left: 0px;
-        width: 100%;
-        z-index: 400;
-        background: rgba(255, 255, 255, 1);
-        overflow: scroll;
-
-        article {
-          position: relative;
-          z-index: 500;
-          width: 100%;
-          max-width: 900px;
-          background: rgba(255, 255, 255, 1);
-          margin: 0 auto;
-          color: black;
-          box-sizing: border-box;
-          cursor: default;
-
-          h1,
-          h2 {
-            color: black;
-            padding-left: 40px;
-            padding-right: 40px;
-          }
-
-          h1 {
-            margin-top: 95px;
-            font-size: 4.5em;
-            line-height: 1.2em;
-          }
-
-          h2 {
-            margin-bottom: 40px;
-            font-size: 2em;
-          }
-
-          p {
-            display: block;
-            padding-left: 100px;
-            padding-right: 100px;
-            font-size: 3.2em;
-            line-height: 1.4em;           
-          }
-        }
-
       }
 
       article {
@@ -322,8 +230,6 @@ body {
 
           @media @desktop {
             font-size: 2em;
-            padding-left: 40px;
-            padding-right: 40px;
             line-height: 1.2em;
             margin: 0 0 0 0;
           }
@@ -369,48 +275,7 @@ body {
   }
 }
 
-.left-menu-container {
-  position: fixed;
-  width: 50%;
-  z-index: 0;
-  background-color: #444;
-  color: #FFFFFF;
-  height: 100%;
-  left: 0;
-
-  ul {
-    float: left;
-    list-style: none;
-    display: block;
-    padding: 0;
-    margin: 0;
-
-    li {
-      cursor: pointer;
-      border-bottom: 1px solid #777;  
-      
-      &:first-child {
-        padding: 20px;
-        font-family: @cherrySwash;
-        font-size: 20px;
-        @media screen and (max-device-width: 480px) and (orientation:portrait) {
-        }
-      }
-
-      button {
-        padding: 20px;
-        background-color: transparent;
-        border : 0;
-        cursor: pointer;
-        color: #FFFFFF;
-        font-size: 16px;
-
-        @media screen and (max-device-width: 480px) and (orientation:portrait) {          
-        }
-      }
-    }
-  }
-}
+@import "_left_menu_container.less";
 
 
 /* end logo box */
@@ -423,7 +288,7 @@ body {
 /** Color specific changes **/
 /** No inheritance because of specificity **/
 
-.jobb {
+.jobb {  
   .child-overlay { 
     background-color    : @jobb;
   }  

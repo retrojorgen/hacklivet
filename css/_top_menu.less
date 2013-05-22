@@ -1,0 +1,75 @@
+.top-menu {
+  position: absolute;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #151426;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0;
+  height: 60px;
+  margin-top: 400px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
+  background-color: #FFFFFF;
+  z-index: 400;
+  display: block;
+
+  @media @desktop {
+    padding: 0;
+  }
+  .top-menu-centered {
+    margin: 0 auto;
+    margin-left: 27px;
+    display: inline-block;
+
+    .hack-livet-logo {
+      padding: 0;
+      margin: 0;
+      display: inline;
+      color: rgba(0,0,0,1);
+      font-family: @cherrySwash;
+      font-weight: normal;
+      letter-spacing: -2px;
+      float: left;
+      //.animation(colorcycle, 10s, 0, infinite);
+      @media @desktop {
+        font-size: 3em;
+
+      }      
+    }
+
+    .hack-livet-tagline {
+      @media @desktop {
+        display: inline-block;
+        float: left;
+        font-size: 0.8em;
+        margin-left: 2em;
+        color : rgba(0,0,0,0.6);
+        font-style: italic;
+        font-weight: normal;
+        width: 105px;
+        padding-top: 8px;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.6);
+      }
+    }
+
+    .open-slide-menu {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      height: 60px;
+      width: 60px;
+      display: inline;
+      background: url(../img/icon/open-slide-menu.svg) no-repeat;
+      background-size: 60%;
+      background-position: 0 50%;
+      opacity: 0.5;
+      float: left;
+      cursor:pointer;      
+    }
+  }         
+}

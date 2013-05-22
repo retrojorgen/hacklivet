@@ -19,7 +19,7 @@ var hacklife = {
     hacklife.el.videoWrappers.fitVids();
   },
   loadArticles : function () {
-    $.get('articles.html', function(data) {
+    $.get('article.html', function(data) {
       hacklife.el.articleWrapper.html(data);
     });
   },

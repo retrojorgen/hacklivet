@@ -9,25 +9,10 @@
 
 </head>
 <body>
-  <div class="left-menu-container">
-    <ul>
-      <li>Filter
-      </li>
-      <li><button class="type-filter">Hacks</button>
-      </li>
-      <li><button class="type-filter">Videohacks</button>
-      </li>
-      <li><button class="type-filter">Hurtighacks</button>
-      </li>        
-    </ul>
-  </div> 
-
   <div class="content-wrapper">
-
-  <div class="top-menu">
+  <div class="top-menu fixed hanging-header">
     <div class="top-menu-centered">
-      <button class="open-slide-menu"></button>
-      <h1 class="hack-livet-logo">Hack livet</h1>
+      <h1 class="hack-livet-logo"><a href="index.html">Hack livet</a></h1>
       <h2 class="hack-livet-tagline">En liten blog om lurifaks ideer.</h2>
     </div>
   </div>
@@ -44,6 +29,7 @@
       env: "development"
     };
   </script>
-  <script src="js/hacklife/article-hacklife.js"></script>
+  <script src="js/hacklife/hacklife.js"></script>
+  <script>hacklife.init({inputArticle: 'article.html'})</script>
 </body>
 </html>

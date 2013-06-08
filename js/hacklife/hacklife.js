@@ -1,11 +1,14 @@
 var hacklife = {
   gvar : {
     inputArticle : 'articles.html',
-    defaultConfig : {inputArticle: 'article.html'}
+    defaultConfig : {inputArticle: 'article.html'},
+    headerToggle : false
   },
   el : {
     browserWindow : $(window),
+    browserDocument : $(document),
     body : $('body'),
+    header : $('.top-menu'),
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
     openSlideMenu : $('.open-slide-menu'),
@@ -27,27 +30,16 @@ var hacklife = {
     });
   },
   bindUIElements : function () {
-    hacklife.el.contentWrapper.hammer().on("swipeleft", hacklife.resetMarginLeft);
-    hacklife.el.contentWrapper.hammer().on("swiperight", hacklife.changeMarginLeft);
-    hacklife.el.openSlideMenu.on("click", hacklife.changeMarginLeft);
-    hacklife.el.contentWrapper.on("click", hacklife.resetMarginLeft);
+    hacklife.el.browserDocument.on("scroll", hacklife.toggleHeader);
   },
-  resetMarginLeft : function (ev) {      
-    hacklife.el.contentWrapper.css('left','0px');
-  },
-  changeMarginLeft : function (ev) {
-    if(parseInt(hacklife.el.contentWrapper.css("left")) > 0) {
-      hacklife.el.contentWrapper.animate({left:'0px'}, 50);  
-    } else {
-      hacklife.el.contentWrapper.animate({left:'150px'}, 50);
-    }    
-  },
-  addRightWipeClass : function () {
-    hacklife.el.contentWrapper.addClass(hacklife.gvar.wipeContentWrapperRright).removeClass(hacklife.gvar.hideWipeContentWrapperRright);
-    hacklife.el.openRightMenuButton.removeClass(hacklife.gvar.openRightMenuButtonClass).addClass(hacklife.gvar.openRightMenuButtonSelectedclass);
-  },
-  removeRightWipeClass : function () {
-    hacklife.el.contentWrapper.addClass(hacklife.gvar.hideWipeContentWrapperRright);
-    hacklife.el.openRightMenuButton.removeClass(hacklife.gvar.openRightMenuButtonSelectedclass).addClass(hacklife.gvar.openRightMenuButtonClass);
+  toggleHeader : function () {
+    if(hacklife.el.browserDocument.scrollTop() > 480 && !hacklife.gvar.headerToggle) {
+      hacklife.el.header.addClass("fixed").addClass("hanging-header");
+      hacklife.gvar.headerToggle = true;
+    }
+    if(hacklife.el.browserDocument.scrollTop() < 480 && hacklife.gvar.headerToggle) {
+      hacklife.el.header.removeClass("fixed").removeClass("hanging-header");
+      hacklife.gvar.headerToggle = false;
+    }
   }
 };

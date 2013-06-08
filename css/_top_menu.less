@@ -16,6 +16,25 @@
   z-index: 400;
   display: block;
 
+  &.fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 10000;
+  }
+
+  /* Adjustment classes */
+  &.hanging-header {
+    height: 60px;
+    .top-menu-centered {
+      .hack-livet-logo {
+        font-size: 3.2em;
+      }
+      .hack-livet-tagline {
+        font-size: 0.8em;
+      }
+    }
+  }
 
   @media @desktop {
     padding: 0;
@@ -34,7 +53,7 @@
       font-weight: normal;
       letter-spacing: -3px;
       float: left;
-      text-shadow:2px 2px rgba(0, 0, 0, 0.2);
+      text-shadow:2px 2px rgba(255,0,0,0.2);
       //.animation(colorcycle, 10s, 0, infinite);
       @media @desktop {
         font-size: 5em;
@@ -54,7 +73,7 @@
         width: 105px;
         padding-top: 8px;
         text-align: left;
-        border-bottom: 3px solid rgba(0,0,0,0.6);
+        border-bottom: 3px solid rgba(255,0,0,0.9);
       }
     }
 

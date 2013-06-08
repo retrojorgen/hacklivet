@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 @import "_base.less";
 
 
@@ -67,6 +67,12 @@ a {
         display: inline-block;
         margin-left: 1%;
 
+        &:hover {
+            a {
+              background-color: rgba(255,0,0,0.9);
+            }
+        }
+
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
@@ -85,6 +91,8 @@ a {
           article{
             h1 {
               font-size: 2em;
+              padding-left: 20px;
+              padding-right: 20px;
               a {
                 color: #FFFFFF;
               }  
@@ -92,6 +100,9 @@ a {
             h2 {
               text-align: right;
               padding-right: 20px;
+            }
+            h3 {
+              display: none;
             }            
             p {
               display: none;
@@ -128,6 +139,15 @@ a {
           background-color: #FFFFFF;
           margin-bottom: 20px;
           height: auto;
+          &:hover {
+            a {
+              color: #FFFFFF;
+              background-color: rgba(255,0,0,0.8);
+            }
+            h3:after {
+              text-decoration: underline;
+            }
+          }
           .article-header {
             width: 100%;
             height: auto;
@@ -150,6 +170,20 @@ a {
             h2 {
               color: rgba(0,0,0,0.4);
             }
+            h3 {
+              color: rgba(0,0,0,0.5);
+              font-size: 13px;
+              line-height: 1.6;
+              text-align: left;
+              overflow: hidden;
+              &:after {
+                content: 'Les mer..';
+                color: @child-les-mer;
+              }
+            }
+            p {
+              display: none;
+            } 
           }
         }                
       }
@@ -214,6 +248,10 @@ a {
           position:relative;
           width: 100%;
         }
+        h3 {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
         p {
           text-align: left;
           padding-left: 20px;
@@ -222,13 +260,14 @@ a {
       }
       .article-header {
         height: 100%;
-        margin-left: -30%;
+        margin-left: 0%;
         position: absolute;
         z-index: 0;
         @media @desktop {
           width: auto;
-          height: 105%;
-          left: -50%;
+          height: 100%;
+          left: 0;
+          margin-left: 1%;
         }
       }
     }    

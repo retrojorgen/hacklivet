@@ -1,5 +1,7 @@
 var hacklife = {
   gvar : {
+    inputArticle : 'articles.html',
+    defaultConfig : {inputArticle: 'article.html'}
   },
   el : {
     browserWindow : $(window),
@@ -7,19 +9,20 @@ var hacklife = {
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
     openSlideMenu : $('.open-slide-menu'),
-    child : $('.child'),
-    videoWrappers: $('.videohack')
+    child : $('.child')
   },
-  init : function () {
+  init : function (config) {
+    config = config || hacklife.gvar.defaultConfig;
+    hacklife.gvar.inputArticle = config.inputArticle;
     hacklife.makeVideosFluidWidth();
     hacklife.bindUIElements();
     hacklife.loadArticles();
   },
   makeVideosFluidWidth : function () {
-    hacklife.el.videoWrappers.fitVids();
+    hacklife.el.articleWrapper.fitVids();
   },
   loadArticles : function () {
-    $.get('articles.html', function(data) {
+    $.get(hacklife.gvar.inputArticle, function(data) {
       hacklife.el.articleWrapper.html(data);
     });
   },
@@ -48,5 +51,3 @@ var hacklife = {
     hacklife.el.openRightMenuButton.removeClass(hacklife.gvar.openRightMenuButtonSelectedclass).addClass(hacklife.gvar.openRightMenuButtonClass);
   }
 };
-
-hacklife.init();

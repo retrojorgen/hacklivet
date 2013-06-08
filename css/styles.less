@@ -60,16 +60,6 @@ a {
       position: relative;
       width: 100%;
 
-      &:hover {
-        .child-overlay {
-          box-shadow: 0px 0px 50px 30px rgba(0,0,0,0.15)  inset;
-          background-color: rgba(64, 138, 208, 0.0);
-          .transition(box-shadow 100ms linear 0s);
-        }
-        article {
-          .animation(jumphover, 300ms, 0s, ease, forwards);
-        }
-      }
 
       @media @desktop {
         height: 270px;
@@ -82,12 +72,27 @@ a {
         &:nth-child(3) {
           height: 400px;
           float: left;
+          &:hover {
+            .child-overlay {
+              box-shadow: 0px 0px 50px 30px rgba(0,0,0,0.15)  inset;
+              background-color: rgba(64, 138, 208, 0.0);
+              .transition(box-shadow 100ms linear 0s);
+            }
+            article {
+              .animation(jumphover, 300ms, 0s, ease, forwards);
+            }
+          }          
           article{
             h1 {
+              font-size: 2em;
               a {
                 color: #FFFFFF;
-              }
+              }  
             }
+            h2 {
+              text-align: right;
+              padding-right: 20px;
+            }            
             p {
               display: none;
             }
@@ -114,12 +119,15 @@ a {
           padding: 0;
           width: 33%;
         }
-
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+          margin-top: 140px;
+        }
         &:nth-child(1n+4) {
-          height: auto;
           background-color: #FFFFFF;
-          border-radius: 10px;
           margin-bottom: 20px;
+          height: auto;
           .article-header {
             width: 100%;
             height: auto;
@@ -131,7 +139,6 @@ a {
             display: none;
           }
           article {
-            height: auto;
             position:relative;
             bottom: auto;
             background-color: #FFFFFF;
@@ -143,52 +150,7 @@ a {
             h2 {
               color: rgba(0,0,0,0.4);
             }
-            p {
-              display: none;
-
-              &:first-of-type {
-                color: rgba(0,0,0,0.5);
-                display: block;
-                line-height: 1.4em;
-                height:10em;
-                overflow: hidden;
-                margin-left: 20px;
-                margin-right: 20px;
-                padding-top: 22px;
-                border-top: 1px solid rgba(0,0,0,0.1);
-
-                &:after {
-                  content: "";
-                  text-align: center;
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 4.8em;
-                  background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 18%, rgba(255,255,255,0) 100%);                 
-                }
-              }
-            }
           }
-        }
-        &:nth-child(4) {
-          width: 93%;
-          margin-left: 1%;
-          margin-top: 90px;
-          .article-header {
-            width: auto;
-            height: 100%;
-            left: 50%;
-            position: absolute;
-          }
-          article {
-            float: left;
-            width: 50%;
-          }
-        }
-        &:nth-child(8),
-        &:nth-child(9) {
-          width: 45.5%;
         }                
       }
       .child-overlay {
@@ -213,15 +175,13 @@ a {
           .box-sizing(border-box);
           background-color: @tab-background;
         }        
-        
-
         h1 {
           position: relative;
           font-family: @cherrySwash, cursive;
           font-size: 1.5em;
           font-weight: normal;
           color: #FFFFFF;
-          text-align: center;
+          text-align: left;
           padding: 10px;
           letter-spacing: 0;
           line-height: 1em;
@@ -229,7 +189,7 @@ a {
           text-shadow:2px 2px rgba(0, 0, 0, 0.2);
 
           @media @desktop {
-            font-size: 2em;
+            font-size: 1.7em;
             line-height: 1.2em;
             margin: 0 0 0 0;
           }
@@ -237,8 +197,8 @@ a {
 
         h2 {
           color: #FFFFFF;
-          font-size: 16px;
-          line-height: 20px; 
+          font-size: 0.8em;
+          line-height: 0.8em; 
           opacity: 0.6;
           padding: 0;
           margin: 0;  
@@ -255,9 +215,9 @@ a {
           width: 100%;
         }
         p {
-          font-size: 16px;
-          line-height: 25px;
-          margin: 0px;
+          text-align: left;
+          padding-left: 20px;
+          padding-right: 20px;
         }
       }
       .article-header {

@@ -1,19 +1,15 @@
 .top-menu {
-  position: absolute;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  position: fixed;
+  margin-top: 0;
+  top: 0;
+  z-index: 10000;
   background-color: #151426;
   text-align: center;
   vertical-align: middle;
   width: 100%;
   margin: 0;
-  height: 100px;
-  margin-top: 400px;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
   background-color: #FFFFFF;
-  z-index: 400;
   display: block;
 
   &.fixed {
@@ -23,28 +19,39 @@
     z-index: 10000;
   }
 
-  /* Adjustment classes */
-  &.hanging-header {
-    height: 60px;
-    .top-menu-centered {
-      .hack-livet-logo {
-        font-size: 3.2em;
-      }
-      .hack-livet-tagline {
-        font-size: 0.8em;
-      }
-    }
-  }
-
   @media @desktop {
+    top: auto;
+    position: absolute;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    margin-top: 400px;
     padding: 0;
+    /* Adjustment classes */
+    &.hanging-header {
+      height: 60px;
+      .top-menu-centered {
+        .hack-livet-logo {
+          font-size: 3.2em;
+        }
+        .hack-livet-tagline {
+          font-size: 0.8em;
+        }
+      }
+    }    
   }
   .top-menu-centered {
     margin: 0 auto;
-    margin-left: 27px;
+    margin-left: 0;
     display: inline-block;
+    @media @desktop {
+      margin-left: 27px;
+    }
 
     .hack-livet-logo {
+      font-size: 3em;
       padding: 0;
       margin: 0;
       display: inline;
@@ -62,6 +69,7 @@
     }
 
     .hack-livet-tagline {
+      display: none;
       @media @desktop {
         display: inline-block;
         float: left;
@@ -75,22 +83,6 @@
         text-align: left;
         border-bottom: 3px solid rgba(255,0,0,0.9);
       }
-    }
-
-    .open-slide-menu {
-      border: 0;
-      padding: 0;
-      margin: 0;
-      background-color: transparent;
-      height:110px;
-      width: 110px;
-      display: inline;
-      background: url(../img/icon/open-slide-menu.svg) no-repeat;
-      background-size: 60%;
-      background-position: 0 50%;
-      opacity: 0.5;
-      float: left;
-      cursor:pointer;      
     }
   }         
 }

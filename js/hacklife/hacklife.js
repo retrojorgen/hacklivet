@@ -11,18 +11,20 @@ var hacklife = {
     header : $('.top-menu'),
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
+    articleP : $('#article p'),
     openSlideMenu : $('.open-slide-menu'),
     child : $('.child')
   },
   init : function (config) {
     config = config || hacklife.gvar.defaultConfig;
     hacklife.gvar.inputArticle = config.inputArticle;
-    hacklife.makeVideosFluidWidth();
     hacklife.bindUIElements();
     hacklife.loadArticles();
+    hacklife.makeVideosFluidWidth();
   },
   makeVideosFluidWidth : function () {
-    hacklife.el.articleWrapper.fitVids();
+    hacklife.el.articleP.fitVids();
+    console.log(hacklife.el.articleP);
   },
   loadArticles : function () {
     $.get(hacklife.gvar.inputArticle, function(data) {

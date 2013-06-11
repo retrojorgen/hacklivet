@@ -1,7 +1,6 @@
 var hacklife = {
   gvar : {
-    inputArticle : 'articles.html',
-    defaultConfig : {inputArticle: 'article.html'},
+    defaultConfig : {},
     headerToggle : false
   },
   el : {
@@ -11,25 +10,28 @@ var hacklife = {
     header : $('.top-menu'),
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
-    articleP : $('#article p'),
+    articleHeader : $('.article-header'),
+    articleP : $('article p'),
     openSlideMenu : $('.open-slide-menu'),
     child : $('.child')
   },
   init : function (config) {
     config = config || hacklife.gvar.defaultConfig;
-    hacklife.gvar.inputArticle = config.inputArticle;
     hacklife.bindUIElements();
-    hacklife.loadArticles();
     hacklife.makeVideosFluidWidth();
+    hacklife.findVideo();
   },
   makeVideosFluidWidth : function () {
     hacklife.el.articleP.fitVids();
-    console.log(hacklife.el.articleP);
+
   },
-  loadArticles : function () {
-    $.get(hacklife.gvar.inputArticle, function(data) {
-      hacklife.el.articleWrapper.html(data);
-    });
+  findVideo : function() {
+    var video = hacklife.el.articleP.find(".fluid-width-video-wrapper");
+    var photo_temp = hacklife.el.articleHeader[0].outerHTML;
+    if(video.length) {
+      hacklife.el.articleHeader[0].outerHTML = video[0].outerHTML;
+      video[0].outerHTML = photo_temp;
+    }
   },
   bindUIElements : function () {
     hacklife.el.browserDocument.on("scroll", hacklife.toggleHeader);

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>jQuery UI Slider - Slider scrollbar</title>
   <link rel="stylesheet/less" type="text/css" href="css/article-styles.less" />
 
@@ -40,7 +40,7 @@ i årevis med å håndtere hverdagen, oppdager jeg stadig at jeg kan gjøre ting
 At jeg kan forbedre meg selv, hvordan jeg lar hverdagen påvirke meg og hvordan
 jeg interagerer med menneskene jeg sosialiserer med, på jobb og hjemme.
 </p>
-<p>
+<p class="iframecontainer">
 <iframe width="560" height="315" src="http://www.youtube.com/embed/4tpL9IkHDMY" frameborder="0" allowfullscreen></iframe>  
 En liten justering kan føre til at hele hverdagen forandres, forbedres, gir et nytt perspektiv
 på noe man trodde var fullstendig satt. Litt smertefullt kanskje, for oss som liker rutiner i hverdagen,
@@ -84,17 +84,16 @@ Referanser:
 </article>
 </div>
 <!-- End of child snippet -->        
-    </div>    
+    </div>
+  <script src="js/external/lessjs/less-1.3.3.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="js/external/fitvids/jquery.fitvids.js"></script>
-  <script src="js/external/hammerjs/dist/jquery.hammer.min.js"></script>
-  <script src="js/external/lessjs/less-1.3.3.min.js"></script>
-  <script type="text/javascript">
-    less = {
-      env: "development"
-    };
-  </script>
   <script src="js/hacklife/hacklife.js"></script>
-  <script>hacklife.init({inputArticle: ''})</script>
+  <script>
+  $(document).ready(function() {
+    hacklife.init({inputArticle: ''});
+  });
+  </script>
+  
 </body>
 </html>

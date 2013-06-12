@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 @import "_base.less";
 
 
@@ -12,7 +12,7 @@ html{
 }
 
 body {
-  background-color: #444;
+  background-color: rgba(0,0,0,0.08);
   height: 100%;
   margin: 0;
   padding: 0;
@@ -31,7 +31,6 @@ a {
 
 .content-wrapper {
   position: relative;
-  background-color: #FFFFFF;
   height: 100%;
 
   @import "_top_menu.less";
@@ -63,7 +62,6 @@ a {
       padding: 0;
       width: 100%;
       max-width:100%;
-      background-color: rgb(240, 240, 240);
     }
     .child {
       padding-top: 60px;
@@ -89,42 +87,48 @@ a {
           font-size: 1.8em;
           line-height: 1em;
           margin: 0;
-          padding-top: 0.6em;
-          padding-bottom: 0.2em;
+          padding: 0;
           @media @moma-bear {
-            padding-top: 1em;
+            margin-top: 1em;
             font-size: 3.5em;
             padding-bottom: 0.5em;
           }
         }
 
-        h2 {
+        .date-and-author {
+          display: block;
+          text-align: right;
           position: relative;
           font-size: 0.8em;
           color: rgba(0,0,0,0.4);
-          margin-top: 0.8em;
+          padding: 0;
+          margin: 0;
+          padding-top: 20px;
+          padding-right: 20px;
+
           @media @moma-bear {
             color: rgba(0,0,0,0.4);
             font-size: 1em;
-            margin-bottom: 2em;
+          }
+          .author {
+            color: rgba(255,0,0,1);
           }
         }
-        h3 {
-          text-align: left;
+        h2 {
+          text-align: center;
           margin-left: 0.8em;
           margin-right: 0.8em;
-          font-style: italic;
-          font-weight: bold;
-          color: rgba(0,0,0,0.9);
+          color: rgba(0,0,0,0.4);
           line-height: 1.4em;
           font-size: 1em;
           padding: 0;
           @media @moma-bear {
+            margin-top: 0;
             padding: 0;
-            font-size: 1.2em;
+            font-size: 2em;
             margin-left: 1.5em;
             margin-right: 1.5em;
-            line-height: 1.6em;
+            line-height: 1.1em;
             margin-bottom: 2em;
           }
         }
@@ -138,7 +142,14 @@ a {
             margin-left: 2em;
             margin-right: 2em;
           }
+          img {
+            max-width: 100%;
+          }
+          &:last-of-type {
+            padding-bottom: 20px;
+          }
         }
+
       }
     }    
   }
@@ -151,42 +162,65 @@ a {
 }
 
 .gallery-row {
+  text-align: left;
   display: block;
-  width: 100%;
-  height: 150px;
+  height: 75px;
+  padding: 20px;
+    @media @moma-bear {
+      height: 150px;
+    }  
+  + .gallery-row {
+    margin-top: -40px;
+  }
   img {
     position: absolute;
-    width: 20%;
-    height: 150px;
+    width: 25%;
+    height: 75px;
     z-index: 100;
+    @media @moma-bear {
+      height: 150px;
+    }
     &:nth-of-type(1) {
       left: 0;
     }
     &:nth-of-type(2) {
-      left: 20%;
+      left: 25%;
     }
     &:nth-of-type(3) {
-      left: 40%;
+      left: 50%;
     }
     &:nth-of-type(4) {
-      left: 60%;
+      left: 75%;
     }
-    &:nth-of-type(5) {
-      left: 80%;
+    @media @moma-bear {
+      &:hover {
+        margin-left: -2.5%;
+        margin-top: -25px;
+        width: 30%;
+        height: 200px;
+        z-index: 103;
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+      }
     }
-    &:hover {
-      margin-left: -5%;
-      margin-top: -25px;
-      width: 30%;
-      height: 200px;
-      z-index: 101;
-      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+  }
+  &:first-of-type {
+    &:before {
+      position: absolute;
+      content: "Galleri";
+      padding: 5px;
+      margin-left: 20px;
+      margin-top: -5px;
+      color: rgba(255,255,255,1);
+      background-color: rgba(255,0,0,1);
+      box-shadow: 4px 4px 1px 1px rgba(0,0,0,1);
+      z-index: 102;
     }
   }
   .fullscreen {
     position: fixed;
     top: 0;
     left: 0;
+    text-align: center;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.8);
@@ -194,24 +228,30 @@ a {
    img {
       position: relative;
       margin: 0 auto;
-      width: auto;
-      height: 90%;
-      margin-top: 2.5%;
+      width: 90%;
+      height: auto;
+      top: 27%;
+      vertical-align: middle;
 
       &:hover {
         margin: 0 auto;
         margin-top: 2.5%;
-        width: auto;
-        height: 90%;
+        width: 90%;
+        height: auto;          
         z-index: 10001;
         box-shadow: 0;
       }
+      @media @moma-bear {
+        top: auto;
+        margin-top: 2.5%;
+        width: auto;
+        height: 90%;
+        &:hover {
+          width: auto;
+          height: 90%;
+        }        
+      }      
    }
-  }  
-
-  &:after {
-    content: "hepp";
-    clear: both;
   }
 }
 .clear {

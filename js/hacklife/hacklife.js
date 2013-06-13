@@ -1,7 +1,11 @@
 var hacklife = {
   gvar : {
     defaultConfig : {},
-    headerToggle : false
+    headerToggle : false,
+    fluidWidthVideoWrapper : ".fluid-width-video-wrapper",
+    hangingHeaderClass : "hanging-header",
+    fullscreenClass : ".fullscreen" 
+
   },
   el : {
     browserWindow : $(window),
@@ -11,8 +15,8 @@ var hacklife = {
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
     articleHeader : $('.article-header'),
+    gallery : $('.gallery-row'),
     galleryImage : $('.gallery-row img'),
-    galleryFullscrenImage : $('.fullscreen img'),
     articleP : $('article p'),
     openSlideMenu : $('.open-slide-menu'),
     child : $('.child')
@@ -28,7 +32,7 @@ var hacklife = {
 
   },
   findVideo : function() {
-    var video = hacklife.el.articleP.find(".fluid-width-video-wrapper");
+    var video = hacklife.el.articleP.find(hacklife.gvar.fluidWidthVideoWrapper);
     if(hacklife.el.articleHeader.length) {
       var photo_temp = hacklife.el.articleHeader[0].outerHTML;
       if(video.length) {
@@ -40,6 +44,7 @@ var hacklife = {
   bindUIElements : function () {
     hacklife.el.browserDocument.on("scroll", hacklife.toggleHeader);
     hacklife.el.galleryImage.on("click", hacklife.openImage);
+    hacklife.el.body.on("keydown", hacklife.keyPressController);
   },
   openImage : function (event) {
     if($(this).parent().hasClass('fullscreen')) {
@@ -53,12 +58,22 @@ var hacklife = {
   },
   toggleHeader : function () {
     if(hacklife.el.browserDocument.scrollTop() > 480 && !hacklife.gvar.headerToggle) {
-      hacklife.el.header.addClass("fixed").addClass("hanging-header");
+      hacklife.el.header.addClass("fixed").addClass(hacklife.gvar.hangingHeaderClass);
       hacklife.gvar.headerToggle = true;
     }
     if(hacklife.el.browserDocument.scrollTop() < 480 && hacklife.gvar.headerToggle) {
-      hacklife.el.header.removeClass("fixed").removeClass("hanging-header");
+      hacklife.el.header.removeClass("fixed").removeClass(hacklife.gvar.hangingHeaderClass);
       hacklife.gvar.headerToggle = false;
+    }
+  },
+  keyPressController : function (event) {
+    console.log(event.keyCode);
+    if(event.keyCode === 27) {
+      var gallery_temp = hacklife.el.gallery.find(hacklife.gvar.fullscreenClass);
+      console.log(gallery_temp);
+      if(gallery_temp.length) {
+        gallery_temp.children().unwrap();
+      }
     }
   }
 };

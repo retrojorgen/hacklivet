@@ -162,15 +162,19 @@ a {
 }
 
 .gallery-row {
+  position: relative;
   text-align: left;
   display: block;
   height: 75px;
-  padding: 20px;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
     @media @moma-bear {
       height: 150px;
+      margin-left: 2em;
+      margin-right: 2em;
     }  
   + .gallery-row {
-    margin-top: -40px;
+    margin-top: 0px;
   }
   img {
     position: absolute;

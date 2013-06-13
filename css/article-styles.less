@@ -84,11 +84,13 @@ a {
 
         h1 {
           font-family : @cherrySwash;
-          font-size: 1.8em;
+          font-size: 2.2em;
           line-height: 1em;
           margin: 0;
-          padding: 0;
+          padding: 0;          
+          margin-top: 20px;
           @media @moma-bear {
+            line-height: 1.1em;
             margin-top: 1em;
             font-size: 3.5em;
             padding-bottom: 0.5em;
@@ -120,8 +122,10 @@ a {
           margin-right: 0.8em;
           color: rgba(0,0,0,0.4);
           line-height: 1.4em;
-          font-size: 1em;
+          font-size: 1.1em;
+          margin-bottom: 20px;
           padding: 0;
+          padding-bottom: 20px;
           @media @moma-bear {
             margin-top: 0;
             padding: 0;
@@ -141,6 +145,22 @@ a {
           @media @moma-bear {
             margin-left: 2em;
             margin-right: 2em;
+          }
+          &:first-of-type {
+            &:first-letter {
+              float:left;
+              font-size:3em;
+              font-family: @cherrySwash;
+              color: rgba(255,255,255,1);
+              padding: 4px;
+              background-color: rgba(255,0,0,1);
+              margin-right:0.2em;
+              line-height:90%;
+              text-shadow: 0.05em 0.05em rgba(0,0,0,0.1);
+              @media @moma-bear {
+                font-size:3em;
+              }
+            }            
           }
           img {
             max-width: 100%;

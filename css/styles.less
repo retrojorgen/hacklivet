@@ -46,19 +46,18 @@ a {
     }
 
     .child {
-      cursor: pointer;
       *display:inline;/* For IE7*/
       *zoom:1;/* For IE7*/
       z-index: 0;
       display: block;
       position:relative;
       width: 100%;
-      background-color : rgba(255,255,255,1);
+      background-color : rgba(0,0,0,1);
 
       &:nth-child(1) {
       }
       &:active {
-        h3:after {
+        h2:after {
           text-decoration: underline;
         }
       }
@@ -71,8 +70,10 @@ a {
         margin-left: 1%;
 
         &:hover {
-            a {
-              background-color: rgba(255,0,0,0.9);
+            h1 {
+              a {
+                background-color: rgba(255,0,0,0.9);
+              }
             }
         }
 
@@ -102,12 +103,18 @@ a {
                 color: #FFFFFF;
               }  
             }
-            h2 {
-              color: rgba(255,255,255,1);
+            .date-and-author {
+              color: rgba(255,255,255,0.5);
               text-align: right;
-              padding-right: 20px;
+              padding: 20px;
+              font-size: @baby;
+              .author {
+                a {
+                  color: #FFFFFF;
+                }
+              }
             }
-            h3 {
+            h2 {
               display: none;
             }
           }
@@ -143,12 +150,16 @@ a {
           margin-bottom: 20px;
           height: auto;
           &:hover {
-            a {
-              color: #FFFFFF;
-              background-color: rgba(255,0,0,0.8);
+            h1,
+            h1,
+            p {
+              a {
+                color: #FFFFFF;
+                background-color: rgba(255,0,0,0.8);
+              }
             }
           }
-          .article-header {
+          .article-header-wrapper img {
             @media @moma-bear {
               width: 100%;
               height: auto;
@@ -170,8 +181,15 @@ a {
             h1 {
               color: rgba(0,0,0,0.6);
             }
-            h2 {
+            .date-and-author {
               color: rgba(0,0,0,0.4);
+              font-size: @baby;
+            }
+            h2 {
+              font-size: @teen;
+              text-align: left;
+              padding: 10px;
+              line-height: 1.1em;
             }
           }
         }                
@@ -195,7 +213,7 @@ a {
         }
       }
       @import "_article_base.less";
-      .article-header {
+      .article-header-wrapper img {
         position: relative;
         width: 100%;
 
@@ -249,4 +267,8 @@ a {
   .child-overlay { 
     background-color    : @trening;         
   }
+}
+
+.search {
+  display : none;
 }

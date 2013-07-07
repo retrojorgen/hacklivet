@@ -21,10 +21,9 @@ body {
 }
 
 a {
-  color: #000000;
+  color: @text;
   text-decoration: none;
   &:hover {
-    text-decoration: none;
   }
 }
 
@@ -70,7 +69,7 @@ a {
       position: relative;
       margin: 0 auto;
 
-      .article-header {
+      .wp-post-image {
         width: 100%;
         @media @moma-bear {
           margin: 0;
@@ -83,68 +82,73 @@ a {
         .box-sizing(border-box);
 
         h1 {
-          font-family : @cherrySwash;
-          font-size: 2.2em;
-          line-height: 1em;
           margin: 0;
-          padding: 0;          
-          margin-top: 20px;
+          font-family : @cherrySwash;
+          font-size: 2.5em;
+          padding: 0em 0 0.5em 0;
           @media @moma-bear {
-            line-height: 1.1em;
-            margin-top: 1em;
-            font-size: 3.5em;
-            padding-bottom: 0.5em;
+            padding: 0.5em 1.1em 0.2em 1.1em;
+            font-size: 4em;
           }
         }
 
         .date-and-author {
           display: block;
-          text-align: right;
+          text-align: center;
           position: relative;
           font-size: 0.8em;
           color: rgba(0,0,0,0.4);
-          padding: 0;
-          margin: 0;
-          padding-top: 20px;
-          padding-right: 20px;
+          padding: 0 1.1em 0em 1.1em;
+
+          a {
+            color: @hacklivet-red;
+          }
 
           @media @moma-bear {
+            padding-top: 1.1em;
             color: rgba(0,0,0,0.4);
             font-size: 1em;
           }
+
           .author {
-            color: rgba(255,0,0,1);
+            color: rgba(0,0,0,0.8);
           }
         }
         h2 {
           text-align: center;
-          margin-left: 0.8em;
-          margin-right: 0.8em;
-          color: rgba(0,0,0,0.4);
-          line-height: 1.4em;
+          margin: 0;
+          color: rgba(0,0,0,0.5);
           font-size: 1.1em;
-          margin-bottom: 20px;
-          padding: 0;
-          padding-bottom: 20px;
+          margin: 0;
+          padding: 2em 1.1em 1.1em 2em;
+          font-style: italic;
+          font-weight: normal;
+
           @media @moma-bear {
-            margin-top: 0;
-            padding: 0;
-            font-size: 2em;
-            margin-left: 1.5em;
-            margin-right: 1.5em;
-            line-height: 1.1em;
-            margin-bottom: 2em;
+            color: rgba(0,0,0,0.4);
+            font-size: 1.8em;
           }
+        }
+        h3 {
+          margin-top: 2em;
+          padding-left: 1em;
+          padding-right: 1em;
+          font-size: 2.5em;
         }
         p {
           text-align: left;
           color: rgba(0,0,0,0.8);
           line-height: 1.4em;
-          margin-left: 0.8em;
-          margin-right: 0.8em;
+          padding-left: 1.1em;
+          padding-right: 1.1em;
+          
+          a {
+            color: @hacklivet-red;
+          }
+
           @media @moma-bear {
-            margin-left: 2em;
-            margin-right: 2em;
+            padding-left: 4em;
+            padding-right: 4em;
           }
           &:first-of-type {
             &:first-letter {
@@ -169,11 +173,33 @@ a {
             padding-bottom: 20px;
           }
         }
-
+        ol {
+          @media @moma-bear {
+            padding-left : 5.2em;
+            padding-right : 5.2em;
+          }
+          text-align: left;
+          li {
+            margin-bottom: 1.5em;
+            padding-bottom: 0.5em;
+            &:hover {
+              border-bottom: 3px solid rgba(255,0,0,0.9);
+            }
+            &:first-line {
+              font-weight: normal;
+              padding: 4px;
+              color: @inverse-text;
+              background-color: rgba(255,0,0,0.9);
+              border-bottom: 3px solid rgba(255,0,0,0.9);
+            }
+          }
+        }
       }
     }    
   }
 }
+
+@import "_gallery-row.less";
 
 /* end logo box */
 /* helper classes */
@@ -181,103 +207,9 @@ a {
   display: none;
 }
 
-.gallery-row {
-  position: relative;
-  text-align: left;
-  display: block;
-  height: 75px;
-  margin-left: 0.8em;
-  margin-right: 0.8em;
-    @media @moma-bear {
-      height: 150px;
-      margin-left: 2em;
-      margin-right: 2em;
-    }  
-  + .gallery-row {
-    margin-top: 0px;
-  }
-  img {
-    position: absolute;
-    width: 25%;
-    height: 75px;
-    z-index: 100;
-    @media @moma-bear {
-      height: 150px;
-    }
-    &:nth-of-type(1) {
-      left: 0;
-    }
-    &:nth-of-type(2) {
-      left: 25%;
-    }
-    &:nth-of-type(3) {
-      left: 50%;
-    }
-    &:nth-of-type(4) {
-      left: 75%;
-    }
-    @media @moma-bear {
-      &:hover {
-        margin-left: -2.5%;
-        margin-top: -25px;
-        width: 30%;
-        height: 200px;
-        z-index: 103;
-        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
-      }
-    }
-  }
-  &:first-of-type {
-    &:before {
-      position: absolute;
-      content: "Galleri";
-      padding: 5px;
-      margin-left: 20px;
-      margin-top: -5px;
-      color: rgba(255,255,255,1);
-      background-color: rgba(255,0,0,1);
-      box-shadow: 4px 4px 1px 1px rgba(0,0,0,1);
-      z-index: 102;
-    }
-  }
-  .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 10001;
-   img {
-      position: relative;
-      margin: 0 auto;
-      width: 90%;
-      height: auto;
-      top: 27%;
-      vertical-align: middle;
-
-      &:hover {
-        margin: 0 auto;
-        margin-top: 2.5%;
-        width: 90%;
-        height: auto;          
-        z-index: 10001;
-        box-shadow: 0;
-      }
-      @media @moma-bear {
-        top: auto;
-        margin-top: 2.5%;
-        width: auto;
-        height: 90%;
-        &:hover {
-          width: auto;
-          height: 90%;
-        }        
-      }      
-   }
-  }
-}
 .clear {
   clear: both;
+}
+.search {
+  display : none;
 }

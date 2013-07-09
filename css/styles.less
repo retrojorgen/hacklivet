@@ -44,7 +44,6 @@ a {
     @media @moma-bear {
       padding-top: 0;
     }
-
     .child {
       *display:inline;/* For IE7*/
       *zoom:1;/* For IE7*/
@@ -79,6 +78,19 @@ a {
 
         &:nth-child(1) {
           margin-top: 0;
+          .child-overlay {
+            .linear-gradient(darken(@jobb,90%), @jobb, top-diagonal);
+          }
+        }
+        &:nth-child(2) {
+         .child-overlay {
+            .linear-gradient(darken(@livsstil,90%), @livsstil, top-diagonal);
+          } 
+        }
+        &:nth-child(3) {
+          .child-overlay {
+            .linear-gradient(darken(@mat,90%), @mat, top-diagonal);
+          }         
         }
         &:nth-child(1),
         &:nth-child(2),
@@ -87,6 +99,7 @@ a {
           float: left;
           &:hover {
             .child-overlay {
+              background-image: none;
               background-color: rgba(64, 138, 208, 0.0);
               .transition(box-shadow 100ms linear 0s);
             }
@@ -186,10 +199,11 @@ a {
               font-size: @baby;
             }
             h2 {
-              font-size: @teen;
+              font-size: @baby;
               text-align: left;
               padding: 10px;
-              line-height: 1.1em;
+              line-height: 1.6em;
+              color: fadeout(@text, 20%);
             }
           }
         }                
@@ -245,29 +259,6 @@ a {
 /** Color specific changes **/
 /** No inheritance because of specificity **/
 
-.jobb {  
-  .child-overlay { 
-    background-color    : @jobb;
-  }  
-}
-
-.livsstil {        
-  .child-overlay { 
-    background-color    : @livsstil;         
-  }
-}
-
-.mat {      
-  .child-overlay { 
-    background-color    : @mat;         
-  }
-}
-
-.trening {       
-  .child-overlay { 
-    background-color    : @trening;         
-  }
-}
 
 .search {
   display : none;

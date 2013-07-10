@@ -168,11 +168,54 @@ a {
           }
           img {
             max-width: 100%;
+            &.block {
+              display: block;
+            }
+            &.right {
+              float:right;
+              padding: 0.4em 0 0.4em 0.4em;
+            }
+            &.left {
+              float: left;
+              padding: 0.4em 0.4em 0 0.4em;
+            }
+            &:after {
+              clear:both;
+            };
           }
           &:last-of-type {
             padding-bottom: 20px;
           }
         }
+        blockquote {
+          color: @hacklivet-red;
+          font-style: italic;
+          font-size: 1.2em;
+          @media @moma-bear {
+            font-size: 2em;
+          }
+          &.block {
+            display: block;
+            padding-left: 2em;
+            padding-right: 2em;
+            @media @moma-bear {
+              padding-left: 4em;
+              padding-right: 4em;
+            }
+          }
+          &.right {
+            float: right;
+            @media @moma-bear {
+
+            }
+          }
+          &.left {
+            float: left;
+            @media @moma-bear {
+                          
+            }            
+          }
+        }        
         ol {
           @media @moma-bear {
             padding-left : 5.2em;

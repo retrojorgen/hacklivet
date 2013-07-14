@@ -2,6 +2,66 @@
 
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 /** MIXINS **/
+@-webkit-keyframes aboutMe {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
+@-moz-keyframes aboutMe {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
+@-ms-keyframes aboutMe {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
+@-o-keyframes aboutMe {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
+@keyframes aboutMe {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
 @-webkit-keyframes blinkingLogo {
   0% {
     opacity: 0.2;
@@ -305,6 +365,11 @@ a:hover {
     font-size: 5em;
   }
 }
+.content-wrapper .top-menu .top-menu-centered .hack-livet-logo.active a {
+  position: relative;
+  z-index: 10001;
+  color: #ffffff;
+}
 .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
   display: none;
 }
@@ -322,6 +387,63 @@ a:hover {
     text-align: left;
     border-bottom: 3px solid rgba(255, 0, 0, 0.9);
   }
+}
+.content-wrapper .top-menu .top-menu-centered .hack-livet-tagline.active {
+  position: relative;
+  z-index: 10001;
+  color: #ffffff;
+}
+.content-wrapper .top-menu .about-me-wrapper {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  bottom: 0px;
+}
+.content-wrapper .top-menu .about-me-wrapper.active {
+  position: absolute;
+  background-color: #232323;
+  -webkit-animation: aboutMe 100ms 0s linear forwards;
+  -moz-animation: aboutMe 100ms 0s linear forwards;
+  -ms-animation: aboutMe 100ms 0s linear forwards;
+  animation: aboutMe 100ms 0s linear forwards;
+}
+.content-wrapper .top-menu .about-me-wrapper .about-me-centered {
+  position: relative;
+  margin: 0 auto;
+}
+.content-wrapper .top-menu .about-me-wrapper .about-me-centered p {
+  padding: 10px;
+  position: relative;
+  margin: 0 auto;
+  color: #808080;
+  text-align: left;
+  max-width: 400px;
+  font-size: 1em;
+  line-height: 1.3em;
+  border-bottom: 3px solid rgba(255, 0, 0, 0.9);
+}
+.content-wrapper .top-menu .about-me-wrapper .about-me-centered p:first-line {
+  font-size: 1.2em;
+  color: #cccccc;
+  border-bottom: 1px solid #ffffff;
+}
+.content-wrapper .top-menu .about-me-wrapper .about-me-close-button {
+  position: absolute;
+  top: 0.5em;
+  border: 3px solid #484848;
+  border-radius: 40px 40px 40px 40px;
+  right: 0.5em;
+  font-size: 1.4em;
+  width: 40px;
+  background-color: #929292;
+  height: 40px;
+  color: #484848;
+  padding: 0px;
+}
+.content-wrapper .top-menu .about-me-wrapper .about-me-close-button:hover {
+  background-color: #ffffff;
+  border: 3px solid rgba(255, 0, 0, 0.9);
 }
 .content-wrapper .article-wrapper {
   max-width: 100%;

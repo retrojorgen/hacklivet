@@ -29,6 +29,12 @@
   -o-transition:      @transition;  
 }
 
+@-webkit-keyframes aboutMe {.aboutMeKeyframes;}
+@-moz-keyframes aboutMe {.aboutMeKeyframes;}
+@-ms-keyframes aboutMe {.aboutMeKeyframes;}
+@-o-keyframes aboutMe {.aboutMeKeyframes;}
+@keyframes aboutMe {.aboutMeKeyframes;}
+
 @-webkit-keyframes blinkingLogo {.blinkingLogoKeyframes;}
 @-moz-keyframes blinkingLogo {.blinkingLogoKeyframes;}
 @-ms-keyframes blinkingLogo {.blinkingLogoKeyframes;}
@@ -47,6 +53,18 @@
 @-o-keyframes jumphover {.jumphoverKeyframes;}
 @keyframes jumphover {.jumphoverKeyframes;}
 
+.aboutMeKeyframes () {
+  10% {
+    height: 100px;
+  }
+  15% {
+    height: 90px;
+  }
+  100% {
+    border-radius: 0;
+    height: 500px;
+  }
+}
 
 .jumphoverKeyframes () {
   100% {padding-top: 20px;}

@@ -12,6 +12,10 @@ var hacklife = {
     browserDocument : $(document),
     body : $('body'),
     header : $('.top-menu'),
+    headerLogo : $('.hack-livet-logo'),
+    headerTagline : $('.hack-livet-tagline'),
+    headerAboutmeWrapper : $('.about-me-wrapper'),
+    headerAboutmeCloseButton : $('.about-me-close-button'),
     contentWrapper : $('.content-wrapper'),
     articleWrapper : $('.article-wrapper'),
     articleHeader : $('.article-header'),
@@ -44,7 +48,22 @@ var hacklife = {
   bindUIElements : function () {
     hacklife.el.browserDocument.on("scroll", hacklife.toggleHeader);
     hacklife.el.galleryImage.on("click", hacklife.openImage);
+    hacklife.el.headerTagline.on("click", hacklife.taglineEffect);
+    hacklife.el.headerAboutmeCloseButton.on("click", hacklife.taglineEffectClose);
+    
     hacklife.el.body.on("keydown", hacklife.keyPressController);
+  },
+  taglineEffect : function(event) {
+    console.log("apekatt");
+    hacklife.el.headerAboutmeWrapper.addClass('active');
+    hacklife.el.headerTagline.addClass('active');
+    hacklife.el.headerLogo.addClass('active');
+    hacklife.el.browserWindow.scrollTop(0);
+  },
+  taglineEffectClose : function(event) {
+    hacklife.el.headerAboutmeWrapper.removeClass('active');
+    hacklife.el.headerTagline.removeClass('active');
+    hacklife.el.headerLogo.removeClass('active');    
   },
   openImage : function (event) {
     if($(this).parent().hasClass('fullscreen')) {

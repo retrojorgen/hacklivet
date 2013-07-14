@@ -68,6 +68,13 @@
       @media @moma-bear {
         font-size: 5em;
 
+      }
+      &.active {
+        a {
+          position: relative;
+          z-index: 10001;
+          color: @inverse-text;
+        }
       }      
     }
 
@@ -86,6 +93,60 @@
         text-align: left;
         border-bottom: 3px solid rgba(255,0,0,0.9);
       }
+      &.active {
+          position: relative;
+          z-index: 10001;
+          color: @inverse-text;
+      }
     }
+  }
+  .about-me-wrapper {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    bottom: 0px;
+    &.active {
+      position: absolute;
+      background-color: rgba(35,35,35,1);
+      .animation(aboutMe, 100ms, 0s, linear, forwards);
+    }
+    .about-me-centered {
+      position: relative;
+      margin: 0 auto;
+      p {
+        padding: 10px;
+        position: relative;
+        margin: 0 auto;
+        color: darken(@inverse-text, 50%);
+        text-align: left;
+        max-width: 400px;
+        font-size: 1em;
+        line-height: 1.3em;
+        border-bottom: 3px solid @hacklivet-red;                
+        &:first-line {
+          font-size : 1.2em;
+          color: darken(@inverse-text, 20%);
+          border-bottom: 1px solid @inverse-text;
+        }
+      }
+    }
+    .about-me-close-button {
+      position: absolute;
+      top: 0.5em;
+      border: 3px solid rgb(72, 72, 72);
+      border-radius: 40px 40px 40px 40px;
+      right: 0.5em;
+      font-size: 1.4em;
+      width: 40px;
+      background-color: rgba(146, 146, 146, 1);
+      height: 40px;
+      color: rgb(72, 72, 72);
+      padding: 0px;        
+      &:hover {
+        background-color: rgba(255, 255, 255, 1);
+        border: 3px solid @hacklivet-red;
+      }
+    }    
   }         
 }

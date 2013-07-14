@@ -38,10 +38,11 @@ a {
     position: fixed;
     top: 0;
     margin-top: 0;
-    height: 60px;
+    height: 55px;
+
     .top-menu-centered {
       .hack-livet-logo {
-        font-size: 3.2em;
+        font-size: 2.2em;
       }
       .hack-livet-tagline {
         font-size: 0.8em;
@@ -84,11 +85,18 @@ a {
         h1 {
           margin: 0;
           font-family : @cherrySwash;
-          font-size: 2.5em;
-          padding: 0em 0 0.5em 0;
+          font-size: 2.2em;
+          padding: 0.5em 0.2em 0.5em 0.2em;
+          word-wrap: break-word;
+          letter-spacing: -2px;
+          line-height: 1.1em;
           @media @moma-bear {
             padding: 0.5em 1.1em 0.2em 1.1em;
             font-size: 4em;
+            word-wrap: break-word;
+            line-height: normal;
+            letter-spacing: 0;
+
           }
         }
 
@@ -120,7 +128,7 @@ a {
           color: rgba(0,0,0,0.5);
           font-size: 1.1em;
           margin: 0;
-          padding: 2em 1.1em 1.1em 2em;
+          padding: 1.1em 2em 1.1em 2em;
           font-style: italic;
           font-weight: normal;
 
@@ -169,27 +177,27 @@ a {
               }
             }            
           }
-          img {
-            max-width: 100%;
-            &.block {
-              display: block;
-            }
-            &.right {
-              float:right;
-              padding: 0.4em 0 0.4em 0.4em;
-            }
-            &.left {
-              float: left;
-              padding: 0.4em 0.4em 0 0.4em;
-            }
-            &:after {
-              clear:both;
-            };
-          }
-          &:last-of-type {
-            padding-bottom: 20px;
-          }
         }
+        img {
+          max-width: 100%;
+          &.block {
+            display: block;
+          }
+          &.right {
+            float:right;
+            padding: 0.4em 0 0.4em 0.4em;
+          }
+          &.left {
+            float: left;
+            padding: 0.4em 0.4em 0 0.4em;
+          }
+          &:after {
+            clear:both;
+          };
+        }
+        &:last-of-type {
+          padding-bottom: 20px;
+        }        
         blockquote {
           p {
             color: @hacklivet-red;

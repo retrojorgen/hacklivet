@@ -289,7 +289,7 @@ a:hover {
   }
 }
 .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
-  font-size: 3em;
+  font-size: 2em;
   padding: 0;
   margin: 0;
   display: inline;
@@ -325,7 +325,7 @@ a:hover {
 }
 .content-wrapper .article-wrapper {
   max-width: 100%;
-  padding-top: 67px;
+  padding-top: 47px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -421,6 +421,7 @@ a:hover {
     font-size: 2em;
     padding-left: 20px;
     padding-right: 20px;
+    word-wrap: break-word;
   }
   .content-wrapper .article-wrapper .child:nth-child(1) article h1 a,
   .content-wrapper .article-wrapper .child:nth-child(2) article h1 a,
@@ -570,7 +571,6 @@ a:hover {
   letter-spacing: 0;
   line-height: 1.2em;
   z-index: 125;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 1000px) {
   .content-wrapper .article-wrapper .child article h1 {
@@ -581,11 +581,11 @@ a:hover {
   }
 }
 .content-wrapper .article-wrapper .child article h2 {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 0.8em;
-  line-height: 0.8em;
+  line-height: 1.6em;
   opacity: 0.6;
-  padding: 0;
+  padding: 1.2em;
   margin: 0;
   font-weight: normal;
   text-align: center;

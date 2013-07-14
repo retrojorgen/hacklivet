@@ -424,7 +424,12 @@ a {
   margin-top: 2em;
   padding-left: 1em;
   padding-right: 1em;
-  font-size: 2.5em;
+  font-size: 1.5em;
+}
+@media (min-width: 1000px) {
+  .content-wrapper .article-wrapper .child article h3 {
+    font-size: 2.5em;
+  }
 }
 .content-wrapper .article-wrapper .child article p {
   text-align: left;
@@ -461,8 +466,72 @@ a {
 .content-wrapper .article-wrapper .child article p img {
   max-width: 100%;
 }
+.content-wrapper .article-wrapper .child article p img.block {
+  display: block;
+}
+.content-wrapper .article-wrapper .child article p img.right {
+  float: right;
+  padding: 0.4em 0 0.4em 0.4em;
+}
+.content-wrapper .article-wrapper .child article p img.left {
+  float: left;
+  padding: 0.4em 0.4em 0 0.4em;
+}
+.content-wrapper .article-wrapper .child article p img:after {
+  clear: both;
+}
 .content-wrapper .article-wrapper .child article p:last-of-type {
   padding-bottom: 20px;
+}
+.content-wrapper .article-wrapper .child article blockquote p {
+  color: rgba(255, 0, 0, 0.9);
+  font-style: italic;
+  font-size: 1.2em;
+}
+@media (min-width: 1000px) {
+  .content-wrapper .article-wrapper .child article blockquote p {
+    font-size: 1.6em;
+  }
+}
+.content-wrapper .article-wrapper .child article blockquote p:first-of-type:first-letter {
+  float: none;
+  font-family: 'Droid Sans';
+  color: rgba(255, 0, 0, 0.9);
+  font-style: italic;
+  padding: 0 0 0 0;
+  text-shadow: auto;
+  font-size: 1.2em;
+  line-height: auto;
+  margin: 0 0 0 0;
+  background-color: white;
+}
+@media (min-width: 1000px) {
+  .content-wrapper .article-wrapper .child article blockquote p:first-of-type:first-letter {
+    font-size: 1em;
+  }
+}
+.content-wrapper .article-wrapper .child article blockquote.block {
+  display: block;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+@media (min-width: 1000px) {
+  .content-wrapper .article-wrapper .child article blockquote.block {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+.content-wrapper .article-wrapper .child article blockquote.right {
+  float: right;
+}
+@media (min-width: 1000px) {
+  
+}
+.content-wrapper .article-wrapper .child article blockquote.left {
+  float: left;
+}
+@media (min-width: 1000px) {
+  
 }
 .content-wrapper .article-wrapper .child article ol {
   text-align: left;

@@ -405,6 +405,7 @@ a:hover {
     -moz-transition: box-shadow 100ms linear 0s;
     -ms-transition: box-shadow 100ms linear 0s;
     -o-transition: box-shadow 100ms linear 0s;
+    display: none;
   }
   .content-wrapper .article-wrapper .child:nth-child(1):hover article,
   .content-wrapper .article-wrapper .child:nth-child(2):hover article,

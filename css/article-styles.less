@@ -133,7 +133,10 @@ a {
           margin-top: 2em;
           padding-left: 1em;
           padding-right: 1em;
-          font-size: 2.5em;
+          font-size: 1.5em;
+          @media @moma-bear {
+            font-size: 2.5em;
+          }
         }
         p {
           text-align: left;
@@ -188,11 +191,30 @@ a {
           }
         }
         blockquote {
-          color: @hacklivet-red;
-          font-style: italic;
-          font-size: 1.2em;
-          @media @moma-bear {
-            font-size: 2em;
+          p {
+            color: @hacklivet-red;
+            font-style: italic;
+            font-size: 1.2em;
+            @media @moma-bear {
+              font-size: 1.6em;
+            }
+            &:first-of-type {
+              &:first-letter {
+                float: none;
+                font-family: @droidSans;
+                color: @hacklivet-red;
+                font-style: italic;
+                padding: 0 0 0 0;
+                text-shadow: auto;
+                font-size: 1.2em;
+                line-height: auto;
+                margin: 0 0 0 0;
+                background-color: white;
+                @media @moma-bear {
+                 font-size: 1em;
+                } 
+              }            
+            }
           }
           &.block {
             display: block;

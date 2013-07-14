@@ -373,6 +373,7 @@ a {
 @media (min-width: 1000px) {
   .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
     display: inline-block;
+    cursor: pointer;
     float: left;
     font-size: 1em;
     margin-left: 2em;
@@ -448,8 +449,18 @@ a {
   margin-top: 0;
   height: 55px;
 }
+@media (min-width: 1000px) {
+  .content-wrapper .top-menu {
+    height: 60px;
+  }
+}
 .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
   font-size: 2.2em;
+}
+@media (min-width: 1000px) {
+  .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
+    font-size: 3.2em;
+  }
 }
 .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
   font-size: 0.8em;

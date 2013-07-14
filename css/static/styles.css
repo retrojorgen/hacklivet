@@ -376,6 +376,7 @@ a:hover {
 @media (min-width: 1000px) {
   .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
     display: inline-block;
+    cursor: pointer;
     float: left;
     font-size: 1em;
     margin-left: 2em;

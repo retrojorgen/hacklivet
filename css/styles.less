@@ -60,6 +60,22 @@ a {
           text-decoration: underline;
         }
       }
+      .ribbon {
+        position: absolute;
+        z-index: 100;
+        padding: 0.4em 0.4em 0.4em 1.4em;
+        color: rgba(255,255,255,0.8);
+        margin-top: 0.4em;
+        &.newest {
+          .linear-gradient(darken(@jobb,20%), fadein(@jobb, 30%), top-diagonal);
+        }
+        &.newer {
+          .linear-gradient(darken(@livsstil,20%), fadein(@livsstil, 30%), top-diagonal);
+        }
+        &.new {
+          .linear-gradient(darken(@mat,20%), fadein(@mat, 30%), top-diagonal);
+        }                        
+      }
       @media @moma-bear {
         vertical-align: top;
         overflow: hidden;

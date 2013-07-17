@@ -65,6 +65,9 @@
       float: left;
       text-shadow:2px 2px rgba(255,0,0,0.2);
       //.animation(colorcycle, 10s, 0, infinite);
+      @media @brother-bear {
+        font-size: 3em;
+      }
       @media @moma-bear {
         font-size: 5em;
 
@@ -80,19 +83,23 @@
 
     .hack-livet-tagline {
       display: none;
-      @media @moma-bear {
+      @media @brother-bear {
         display: inline-block;
-        cursor : pointer;
         float: left;
-        font-size: 1em;
-        margin-left: 2em;
+        font-size: 0.8em;
+        margin-left: 1.8em;
         color : rgba(0,0,0,0.6);
         font-style: italic;
         font-weight: normal;
         width: 105px;
         padding-top: 8px;
         text-align: left;
-        border-bottom: 3px solid rgba(255,0,0,0.9);
+        border-bottom: 3px solid rgba(255,0,0,0.9);                
+      }
+      @media @moma-bear {
+        margin-left: 2em;
+        cursor : pointer;
+        font-size: 1em;
       }
       &.active {
           position: relative;

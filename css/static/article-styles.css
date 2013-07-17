@@ -357,6 +357,11 @@ a {
   float: left;
   text-shadow: 2px 2px rgba(255, 0, 0, 0.2);
 }
+@media (min-width: 700px) {
+  .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
+    font-size: 3em;
+  }
+}
 @media (min-width: 1000px) {
   .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
     font-size: 5em;
@@ -370,13 +375,12 @@ a {
 .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
   display: none;
 }
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
   .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
     display: inline-block;
-    cursor: pointer;
     float: left;
-    font-size: 1em;
-    margin-left: 2em;
+    font-size: 0.8em;
+    margin-left: 1.8em;
     color: rgba(0, 0, 0, 0.6);
     font-style: italic;
     font-weight: normal;
@@ -384,6 +388,13 @@ a {
     padding-top: 8px;
     text-align: left;
     border-bottom: 3px solid rgba(255, 0, 0, 0.9);
+  }
+}
+@media (min-width: 1000px) {
+  .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline {
+    margin-left: 2em;
+    cursor: pointer;
+    font-size: 1em;
   }
 }
 .content-wrapper .top-menu .top-menu-centered .hack-livet-tagline.active {
@@ -456,6 +467,11 @@ a {
 }
 .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
   font-size: 2.2em;
+}
+@media (min-width: 700px) {
+  .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
+    font-size: 3em;
+  }
 }
 @media (min-width: 1000px) {
   .content-wrapper .top-menu .top-menu-centered .hack-livet-logo {
@@ -694,6 +710,16 @@ a {
   color: #ffffff;
   background-color: rgba(255, 0, 0, 0.9);
   border-bottom: 3px solid rgba(255, 0, 0, 0.9);
+}
+@media (min-width: 700px) {
+  .content-wrapper .article-wrapper .child article #disqus_thread {
+    padding: 0 1em 0 1em;
+  }
+}
+@media (min-width: 1000px) {
+  .content-wrapper .article-wrapper .child article #disqus_thread {
+    padding: 0 4em 0 4em;
+  }
 }
 .gallery-row {
   position: relative;

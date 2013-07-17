@@ -46,6 +46,9 @@ a {
     .top-menu-centered {
       .hack-livet-logo {
         font-size: 2.2em;
+        @media @brother-bear {
+          font-size: 3em;
+        }
         @media @moma-bear {
           font-size: 3.2em;
         }
@@ -105,7 +108,6 @@ a {
 
           }
         }
-
         .date-and-author {
           display: block;
           text-align: center;
@@ -271,6 +273,14 @@ a {
               background-color: rgba(255,0,0,0.9);
               border-bottom: 3px solid rgba(255,0,0,0.9);
             }
+          }
+        }
+        #disqus_thread {
+          @media @brother-bear {
+            padding: 0 1em 0 1em;
+          }
+          @media @moma-bear {
+            padding: 0 4em 0 4em;
           }
         }
       }

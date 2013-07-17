@@ -23,8 +23,10 @@ body {
 a {
   color: #000000;
   text-decoration: none;
-  &:hover {
-    text-decoration: none;
+  @media @papa-bear {
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -41,6 +43,9 @@ a {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    @media @brother-bear {
+      padding-top: 67px;
+    }
     @media @moma-bear {
       padding-top: 0;
     }
@@ -76,6 +81,11 @@ a {
           .linear-gradient(darken(@mat,20%), fadein(@mat, 30%), top-diagonal);
         }                        
       }
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7) {
+        display: none;
+      }      
       @media @moma-bear {
         vertical-align: top;
         overflow: hidden;
@@ -83,13 +93,14 @@ a {
         width: 30%;
         display: inline-block;
         margin-left: 1%;
-
-        &:hover {
+        @media @papa-bear {
+          &:hover {
             h1 {
               a {
                 background-color: rgba(255,0,0,0.9);
               }
             }
+          }
         }
 
         &:nth-child(1) {
@@ -113,15 +124,17 @@ a {
         &:nth-child(3) {
           height: 400px;
           float: left;
-          &:hover {
-            .child-overlay {
-              background-image: none;
-              background-color: rgba(64, 138, 208, 0.0);
-              .transition(box-shadow 100ms linear 0s);
-              display: none;
-            }
-            article {
-              .animation(jumphover, 300ms, 0s, ease, forwards);
+          @media @papa-bear {
+            &:hover {
+              .child-overlay {
+                background-image: none;
+                background-color: rgba(64, 138, 208, 0.0);
+                .transition(box-shadow 100ms linear 0s);
+                display: none;
+              }
+              article {
+                .animation(jumphover, 300ms, 0s, ease, forwards);
+              }
             }
           }          
           article{
@@ -171,22 +184,25 @@ a {
           padding: 0;
           width: 33%;
         }
-        &:nth-child(4),
         &:nth-child(5),
-        &:nth-child(6) {
-          margin-top: 140px;
+        &:nth-child(6),
+        &:nth-child(7) {
+            display: inline-block;
+            margin-top: 140px;
         }
         &:nth-child(1n+4) {
           background-color: #FFFFFF;
           margin-bottom: 20px;
           height: auto;
-          &:hover {
-            h1,
-            h1,
-            p {
-              a {
-                color: #FFFFFF;
-                background-color: rgba(255,0,0,0.8);
+          @media @papa-bear {
+            &:hover {
+              h1,
+              h1,
+              p {
+                a {
+                  color: #FFFFFF;
+                  background-color: rgba(255,0,0,0.8);
+                }
               }
             }
           }
@@ -235,7 +251,7 @@ a {
       }
       .child-overlay {
         display: none;
-        @media @moma-bear {
+        @media @papa-bear {
           display: block;
           position: absolute;
           width: 100%;

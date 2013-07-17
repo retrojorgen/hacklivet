@@ -1,0 +1,160 @@
+.top-menu {
+  position: fixed;
+  margin-top: 0;
+  top: 0;
+  z-index: 10000;
+  background-color: #151426;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
+  background-color: #FFFFFF;
+  display: block;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 10000;
+  }
+
+  @media @moma-bear {
+    top: auto;
+    position: absolute;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    margin-top: 400px;
+    padding: 0;
+    /* Adjustment classes */
+    &.hanging-header {
+      height: 60px;
+      .top-menu-centered {
+        .hack-livet-logo {
+          font-size: 3.2em;
+        }
+        .hack-livet-tagline {
+          font-size: 0.8em;
+        }
+      }
+    }    
+  }
+  @media @maxi-bear {
+    margin-top: 500px;
+  }
+  .top-menu-centered {
+    margin: 0 auto;
+    margin-left: 0;
+    display: inline-block;
+    @media @moma-bear {
+      margin-left: 27px;
+    }
+
+    .hack-livet-logo {
+      font-size: 2em;
+      padding: 0;
+      margin: 0;
+      display: inline;
+      color: rgba(0,0,0,1);
+      font-family: @cherrySwash;
+      font-weight: normal;
+      letter-spacing: -3px;
+      float: left;
+      text-shadow:2px 2px rgba(255,0,0,0.2);
+      //.animation(colorcycle, 10s, 0, infinite);
+      @media @brother-bear {
+        font-size: 3em;
+      }
+      @media @moma-bear {
+        font-size: 5em;
+
+      }
+      &.active {
+        a {
+          position: relative;
+          z-index: 10001;
+          color: @inverse-text;
+        }
+      }      
+    }
+
+    .hack-livet-tagline {
+      display: none;
+      @media @brother-bear {
+        display: inline-block;
+        float: left;
+        font-size: 0.8em;
+        margin-left: 1.8em;
+        color : rgba(0,0,0,0.6);
+        font-style: italic;
+        font-weight: normal;
+        width: 105px;
+        padding-top: 8px;
+        text-align: left;
+        border-bottom: 3px solid rgba(255,0,0,0.9);                
+      }
+      @media @moma-bear {
+        margin-left: 2em;
+        cursor : pointer;
+        font-size: 1em;
+      }
+      &.active {
+          position: relative;
+          z-index: 10001;
+          color: @inverse-text;
+      }
+    }
+  }
+  .about-me-wrapper {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    bottom: 0px;
+    &.active {
+      position: absolute;
+      background-color: rgba(35,35,35,1);
+      .animation(aboutMe, 100ms, 0s, linear, forwards);
+    }
+    .about-me-centered {
+      position: relative;
+      margin: 0 auto;
+      p {
+        padding: 10px;
+        position: relative;
+        margin: 0 auto;
+        color: darken(@inverse-text, 50%);
+        text-align: left;
+        max-width: 400px;
+        font-size: 1em;
+        line-height: 1.3em;
+        border-bottom: 3px solid @hacklivet-red;                
+        &:first-line {
+          font-size : 1.2em;
+          color: darken(@inverse-text, 20%);
+          border-bottom: 1px solid @inverse-text;
+        }
+      }
+    }
+    .about-me-close-button {
+      position: absolute;
+      top: 0.5em;
+      border: 3px solid rgb(72, 72, 72);
+      border-radius: 40px 40px 40px 40px;
+      right: 0.5em;
+      font-size: 1.4em;
+      width: 40px;
+      background-color: rgba(146, 146, 146, 1);
+      height: 40px;
+      color: rgb(72, 72, 72);
+      padding: 0px;        
+      &:hover {
+        background-color: rgba(255, 255, 255, 1);
+        border: 3px solid @hacklivet-red;
+      }
+    }    
+  }         
+}

@@ -1,0 +1,304 @@
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import "_base.less";
+
+
+html{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(0,0,0,0.08);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: auto;
+  font-family: @droidSans;
+}
+
+a {
+  color: @text;
+  text-decoration: none;
+  &:hover {
+  }
+}
+
+
+.content-wrapper {
+  position: relative;
+  height: 100%;
+
+  @import "_top_menu.less";
+
+  .top-menu {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    height: 55px;
+    @media @moma-bear {
+      height: 60px;
+    }
+
+    .top-menu-centered {
+      .hack-livet-logo {
+        font-size: 2.2em;
+        @media @brother-bear {
+          font-size: 3em;
+        }
+        @media @moma-bear {
+          font-size: 3.2em;
+        }
+      }
+      .hack-livet-tagline {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .article-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    @media @brother-bear {
+      max-width: 900px;
+    }
+    @media @moma-bear {
+      padding: 0;
+      width: 100%;
+      max-width:100%;
+    }
+    .child {
+      padding-top: 60px;
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      margin: 0 auto;
+
+      .wp-post-image { // this is naughty
+        width: 100%;
+        @media @moma-bear {
+          margin: 0;
+          max-width: 900px;
+        }
+      }
+      article {
+
+        background-color: #FFFFFF;
+        .box-sizing(border-box);
+
+        h1 {
+          margin: 0;
+          font-family : @cherrySwash;
+          font-size: 2.2em;
+          padding: 0.5em 0.2em 0.5em 0.2em;
+          word-wrap: break-word;
+          letter-spacing: -2px;
+          line-height: 1.1em;
+          @media @moma-bear {
+            padding: 0.5em 1.1em 0.2em 1.1em;
+            font-size: 4em;
+            word-wrap: break-word;
+            line-height: normal;
+            letter-spacing: 0;
+
+          }
+        }
+        .date-and-author {
+          display: block;
+          text-align: center;
+          position: relative;
+          font-size: 0.8em;
+          color: rgba(0,0,0,0.4);
+          padding: 0 1.1em 0em 1.1em;
+
+          a {
+            color: @hacklivet-red;
+          }
+
+          @media @moma-bear {
+            padding-top: 1.1em;
+            color: rgba(0,0,0,0.4);
+            font-size: 1em;
+          }
+
+          .author {
+            color: rgba(0,0,0,0.8);
+          }
+        }
+        h2 {
+          text-align: center;
+          margin: 0;
+          color: rgba(0,0,0,0.5);
+          font-size: 1.1em;
+          margin: 0;
+          padding: 1.1em 2em 1.1em 2em;
+          font-style: italic;
+          font-weight: normal;
+
+          @media @moma-bear {
+            color: rgba(0,0,0,0.4);
+            font-size: 1.8em;
+          }
+        }
+        h3 {
+          margin-top: 2em;
+          padding-left: 1em;
+          padding-right: 1em;
+          font-size: 1.5em;
+          @media @moma-bear {
+            font-size: 2.5em;
+          }
+        }
+        p {
+          text-align: left;
+          color: rgba(0,0,0,0.8);
+          line-height: 1.4em;
+          padding-left: 1.1em;
+          padding-right: 1.1em;
+          
+          a {
+            color: @hacklivet-red;
+          }
+
+          @media @moma-bear {
+            padding-left: 4em;
+            padding-right: 4em;
+          }
+          &:first-of-type {
+            &:first-letter {
+              float:left;
+              font-size:3em;
+              font-family: @cherrySwash;
+              color: rgba(255,255,255,1);
+              padding: 4px;
+              background-color: rgba(255,0,0,1);
+              margin-right:0.2em;
+              line-height:90%;
+              text-shadow: 0.05em 0.05em rgba(0,0,0,0.1);
+              @media @moma-bear {
+                font-size:3em;
+              }
+            }            
+          }
+        }
+        img {
+          max-width: 100%;
+          &.block {
+            display: block;
+          }
+          &.right {
+            float:right;
+            padding: 0.4em 0 0.4em 0.4em;
+          }
+          &.left {
+            float: left;
+            padding: 0.4em 0.4em 0 0.4em;
+          }
+          &:after {
+            clear:both;
+          };
+        }
+        &:last-of-type {
+          padding-bottom: 20px;
+        }        
+        blockquote {
+          p {
+            color: @hacklivet-red;
+            font-style: italic;
+            font-size: 1.2em;
+            @media @moma-bear {
+              font-size: 1.6em;
+            }
+            &:first-of-type {
+              &:first-letter {
+                float: none;
+                font-family: @droidSans;
+                color: @hacklivet-red;
+                font-style: italic;
+                padding: 0 0 0 0;
+                text-shadow: auto;
+                font-size: 1.2em;
+                line-height: auto;
+                margin: 0 0 0 0;
+                background-color: white;
+                @media @moma-bear {
+                 font-size: 1em;
+                } 
+              }            
+            }
+          }
+          &.block {
+            display: block;
+            padding-left: 2em;
+            padding-right: 2em;
+            @media @moma-bear {
+              padding-left: 4em;
+              padding-right: 4em;
+            }
+          }
+          &.right {
+            float: right;
+            @media @moma-bear {
+
+            }
+          }
+          &.left {
+            float: left;
+            @media @moma-bear {
+                          
+            }            
+          }
+        }        
+        ol {
+          @media @moma-bear {
+            padding-left : 5.2em;
+            padding-right : 5.2em;
+          }
+          text-align: left;
+          li {
+            margin-bottom: 1.5em;
+            padding-bottom: 0.5em;
+            &:hover {
+              border-bottom: 3px solid rgba(255,0,0,0.9);
+            }
+            &:first-line {
+              font-weight: normal;
+              padding: 4px;
+              color: @inverse-text;
+              background-color: rgba(255,0,0,0.9);
+              border-bottom: 3px solid rgba(255,0,0,0.9);
+            }
+          }
+        }
+        #disqus_thread {
+          @media @brother-bear {
+            padding: 0 1em 0 1em;
+          }
+          @media @moma-bear {
+            padding: 0 4em 0 4em;
+          }
+        }
+      }
+    }    
+  }
+}
+
+@import "_gallery-row.less";
+
+/* end logo box */
+/* helper classes */
+.hidden {
+  display: none;
+}
+
+.clear {
+  clear: both;
+}
+.search {
+  display : none;
+}

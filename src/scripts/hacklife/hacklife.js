@@ -1,4 +1,4 @@
-define(["jquery", "lib/jquery.fitvids.require"], function($,fitvids) {
+define(["jquery", "jquery.fitvids.require"], function($,fitvids) {
 
   $.fn.fitVids = fitvids;
 

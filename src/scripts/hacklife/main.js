@@ -1,3 +1,2 @@
-define(["jquery", "app/hacklife"], function($, hacklife) {
-	// Nothing really happening here yet.
+define(["jquery", "hacklife/hacklife"], function($, hacklife) {
 });

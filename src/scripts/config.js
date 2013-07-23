@@ -9,7 +9,4 @@ requirejs.config({
     }
 });
 
-
-
-
 requirejs(["hacklife/main"]);

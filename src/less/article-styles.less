@@ -73,7 +73,6 @@ a {
       max-width:100%;
     }
     .child {
-      padding-top: 60px;
       width: 100%;
       max-width: 900px;
       position: relative;
@@ -276,9 +275,12 @@ a {
           }
         }
         #disqus_thread {
+          padding: 0 0.4em 0 0.4em;
+
           @media @brother-bear {
             padding: 0 1em 0 1em;
           }
+          
           @media @moma-bear {
             padding: 0 4em 0 4em;
           }
@@ -301,4 +303,12 @@ a {
 }
 .search {
   display : none;
+}
+
+.fb-like {
+  padding: 20px 0 0 0;
+  @media @brother-bear {
+    left: 80px;
+    padding: 40px 0 0 0;
+  }  
 }

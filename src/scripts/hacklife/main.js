@@ -1,2 +1,3 @@
-define(["jquery", "hacklife/hacklife"], function($, hacklife) {
+define(["jquery", "hacklife/hacklife", "hacklife/facebookLike"], function($, hacklife, facebookLie) {
+	
 });

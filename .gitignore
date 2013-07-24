@@ -1,3 +1,4 @@
 src/scripts/configure.js
+src/css/*
 node_modules
 *.DS_Store

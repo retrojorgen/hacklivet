@@ -77,12 +77,12 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             $(this).child();
         },
         toggleHeader : function () {
-            if(hacklife.el.browserDocument.scrollTop() > 480 && !hacklife.gvar.headerToggle) {
+            if(hacklife.el.browserDocument.scrollTop() > 400 && !hacklife.gvar.headerToggle) {
                 hacklife.el.header.addClass('fixed')
                 .addClass(hacklife.gvar.hangingHeaderClass);
                 hacklife.gvar.headerToggle = true;
             }
-            if(hacklife.el.browserDocument.scrollTop() < 480 && hacklife.gvar.headerToggle) {
+            if(hacklife.el.browserDocument.scrollTop() > 400 && !hacklife.gvar.headerToggle) {
                 hacklife.el.header.removeClass('fixed')
                 .removeClass(hacklife.gvar.hangingHeaderClass);
                 hacklife.gvar.headerToggle = false;
@@ -97,7 +97,6 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             }
         }
     };
-
     hacklife.init();
     return hacklife;
 });

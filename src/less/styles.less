@@ -72,13 +72,13 @@ a {
         color: rgba(255,255,255,0.8);
         margin-top: 0.4em;
         &.newest {
-          .linear-gradient(darken(@jobb,20%), fadein(@jobb, 30%), top-diagonal);
+          .linear-gradient(@cyanBlue, @purpleNurple, top-diagonal);
         }
         &.newer {
-          .linear-gradient(darken(@livsstil,20%), fadein(@livsstil, 30%), top-diagonal);
+          .linear-gradient(@purpleNurple, @magentaPurple, top-diagonal);
         }
         &.new {
-          .linear-gradient(darken(@mat,20%), fadein(@mat, 30%), top-diagonal);
+          .linear-gradient(@magentaPurple, @orangeFaded, top-diagonal);
         }                        
       }
       &:nth-child(5),
@@ -106,17 +106,17 @@ a {
         &:nth-child(1) {
           margin-top: 0;
           .child-overlay {
-            .linear-gradient(darken(@jobb,90%), @jobb, top-diagonal);
+            .linear-gradient(@cyanBlue, @purpleNurple, top-diagonal);
           }
         }
         &:nth-child(2) {
          .child-overlay {
-            .linear-gradient(darken(@livsstil,90%), @livsstil, top-diagonal);
+            .linear-gradient(@purpleNurple, @magentaPurple, top-diagonal);
           } 
         }
         &:nth-child(3) {
           .child-overlay {
-            .linear-gradient(darken(@mat,90%), @mat, top-diagonal);
+            .linear-gradient(@magentaPurple, @orangeFaded, top-diagonal);
           }         
         }
         &:nth-child(1),

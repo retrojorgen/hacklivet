@@ -72,13 +72,13 @@ a {
         color: rgba(255,255,255,0.8);
         margin-top: 0.4em;
         &.newest {
-          .linear-gradient(@cyanBlue, @purpleNurple, top-diagonal);
+          .linear-gradient(fadein(@cyanBlue, 20%), fadein(@purpleNurple, 20%), top-diagonal);
         }
         &.newer {
-          .linear-gradient(@purpleNurple, @magentaPurple, top-diagonal);
+          .linear-gradient(fadein(@purpleNurple, 20%), fadein(@magentaPurple, 20%), top-diagonal);
         }
         &.new {
-          .linear-gradient(@magentaPurple, @orangeFaded, top-diagonal);
+          .linear-gradient(fadein(@magentaPurple, 20%), fadein(@orangeFaded, 20%), top-diagonal);
         }                        
       }
       &:nth-child(5),

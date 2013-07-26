@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
+        /**
         requirejs: {
             compile: {
                     options: {
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-
+		**/
         less: {
             production: {
                 options: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                 trailing: true,
                 maxparams: 4,
                 maxdepth: 3,
-                maxstatements: 8,
+                maxstatements: 14,
                 maxlen: 100,
                 jquery: true,
                 browser: true, // to allow global browser variables

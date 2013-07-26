@@ -8,7 +8,8 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             headerToggle : false,
             fluidWidthVideoWrapper : '.fluid-width-video-wrapper',
             hangingHeaderClass : 'hanging-header',
-            fullscreenClass : '.fullscreen'
+            fullscreenClass : '.fullscreen',
+            currentScrollHeight : '0'
         },
         el : {
             browserWindow : $(window),
@@ -55,10 +56,14 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             hacklife.el.body.on('keydown', hacklife.keyPressController);
         },
         taglineEffect : function() {
+            if(hacklife.el.browserDocument.scrollTop() < 410) {
+                hacklife.el.browserWindow.scrollTop(410);
+            }
             hacklife.el.headerAboutmeWrapper.addClass('active');
             hacklife.el.headerTagline.addClass('active');
             hacklife.el.headerLogo.addClass('active');
-            hacklife.el.browserWindow.scrollTop(0);
+
+            hacklife.toggleHeader();
         },
         taglineEffectClose : function() {
             hacklife.el.headerAboutmeWrapper.removeClass('active');
@@ -77,16 +82,28 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             $(this).child();
         },
         toggleHeader : function () {
-            if(hacklife.el.browserDocument.scrollTop() > 400 && !hacklife.gvar.headerToggle) {
-                hacklife.el.header.addClass('fixed')
-                .addClass(hacklife.gvar.hangingHeaderClass);
-                hacklife.gvar.headerToggle = true;
+            if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight <
+                hacklife.el.browserWindow.scrollTop()) {
+                hacklife.el.header.addClass('hidden');
             }
-            if(hacklife.el.browserDocument.scrollTop() < 400 && hacklife.gvar.headerToggle) {
-                hacklife.el.header.removeClass('fixed')
-                .removeClass(hacklife.gvar.hangingHeaderClass);
-                hacklife.gvar.headerToggle = false;
+            if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight >
+                hacklife.el.browserWindow.scrollTop()) {
+                hacklife.el.header.removeClass('hidden');
             }
+            if(!hacklife.el.header.hasClass('static-fixed') &&
+                hacklife.el.browserWindow.scrollTop() > 480) {
+                if(hacklife.gvar.currentScrollHeight < hacklife.el.browserWindow.scrollTop()) {
+                    hacklife.el.header.addClass('hidden');
+                }
+                if(hacklife.gvar.currentScrollHeight > hacklife.el.browserWindow.scrollTop()) {
+                    hacklife.el.header.addClass('fixed').removeClass('hidden');
+                }
+            }
+            if(!hacklife.el.header.hasClass('static-fixed') &&
+                hacklife.el.browserWindow.scrollTop() <= 480) {
+                hacklife.el.header.removeClass('fixed');
+            }
+            hacklife.gvar.currentScrollHeight = hacklife.el.browserWindow.scrollTop();
         },
         keyPressController : function (event) {
             if(event.keyCode === 27) {

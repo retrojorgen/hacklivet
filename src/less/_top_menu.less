@@ -18,6 +18,22 @@
     margin-top: 0;
     z-index: 10000;
     background-color: rgba(255,255,255,0.9);
+    height: 60px;
+    .top-menu-centered {
+      .hack-livet-logo {
+        font-size: 2em;
+        @media @moma-bear {
+          font-size: 3.2em;
+        }
+      }
+      .hack-livet-tagline {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &.hidden {
+    display: none;
   }
 
   @media @moma-bear {
@@ -31,18 +47,7 @@
     margin-top: 400px;
     padding: 0;
     /* Adjustment classes */
-    &.hanging-header {
-      height: 60px;
-      .transition(height 1s);
-      .top-menu-centered {
-        .hack-livet-logo {
-          font-size: 3.2em;
-        }
-        .hack-livet-tagline {
-          font-size: 0.8em;
-        }
-      }
-    }    
+
   }
   @media @maxi-bear {
     margin-top: 500px;
@@ -96,7 +101,7 @@
         width: 105px;
         padding-top: 8px;
         text-align: left;
-        border-bottom: 3px solid rgba(255,0,0,0.9);                
+        border-bottom: 3px solid rgba(255,0,0,0.9);
       }
       @media @moma-bear {
         margin-left: 2em;
@@ -115,30 +120,42 @@
     height: 0;
     overflow: hidden;
     width: 100%;
-    bottom: 0px;
+    top: 0px;
+    
     &.active {
       position: absolute;
       background-color: rgba(35,35,35,1);
+      border-bottom: 3px solid @hacklivet-red;
       .animation(aboutMe, 100ms, 0s, linear, forwards);
     }
     .about-me-centered {
       position: relative;
       margin: 0 auto;
-      p {
-        padding: 10px;
-        position: relative;
-        margin: 0 auto;
-        color: darken(@inverse-text, 50%);
-        text-align: left;
-        max-width: 400px;
-        font-size: 1em;
-        line-height: 1.3em;
-        border-bottom: 3px solid @hacklivet-red;                
-        &:first-line {
-          font-size : 1.2em;
-          color: darken(@inverse-text, 20%);
-          border-bottom: 1px solid @inverse-text;
-        }
+      padding: 50px 0 0 0;
+      width: 950px;
+      .author-bio {
+          width: 49%;
+          display: inline-block;
+          max-width: 400px;
+          padding: 12.5px;
+          vertical-align: top;
+          img {
+            border-bottom: 3px solid @hacklivet-red;
+          }
+          p {
+            display: block;
+            position: relative;
+            margin: 10px 0 10px 0;
+            color: darken(@inverse-text, 50%);
+            text-align: left;
+            font-size: 1em;
+            line-height: 1.3em;
+            
+            &:first-line {
+                font-size : 1.2em;
+                color: darken(@inverse-text, 20%);
+            }
+          }
       }
     }
     .about-me-close-button {
@@ -152,7 +169,7 @@
       background-color: rgba(146, 146, 146, 1);
       height: 40px;
       color: rgb(72, 72, 72);
-      padding: 0px;        
+      padding: 0px;
       &:hover {
         background-color: rgba(255, 255, 255, 1);
         border: 3px solid @hacklivet-red;

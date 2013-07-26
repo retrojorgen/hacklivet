@@ -5,6 +5,16 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        requirejs: {
+            compile: {
+                    options: {
+                    baseUrl: "path/to/base",
+                    mainConfigFile: "path/to/config.js",
+                    out: "path/to/optimized.js"
+                }
+            }
+        },
+
         less: {
             production: {
                 options: {
@@ -51,6 +61,7 @@ module.exports = function(grunt) {
             }
         }
     });
+
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-less');

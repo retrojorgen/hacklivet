@@ -14,7 +14,7 @@ Installation instructions:
 After cloning the repository on the root of the html5 bones wordpress theme,
 run "npm install" from the command line.
 After that run "grunt".
-
+     
 These two commands will fetch package dependencies,
 compile the necesarry css, and lint the javascript source.
 

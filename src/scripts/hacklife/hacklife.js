@@ -85,6 +85,7 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight <
                 hacklife.el.browserWindow.scrollTop()) {
                 hacklife.el.header.addClass('hidden');
+                hacklife.taglineEffectClose();
             }
             if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight >
                 hacklife.el.browserWindow.scrollTop()) {
@@ -94,6 +95,7 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
                 hacklife.el.browserWindow.scrollTop() > 480) {
                 if(hacklife.gvar.currentScrollHeight < hacklife.el.browserWindow.scrollTop()) {
                     hacklife.el.header.addClass('hidden');
+                    hacklife.taglineEffectClose();
                 }
                 if(hacklife.gvar.currentScrollHeight > hacklife.el.browserWindow.scrollTop()) {
                     hacklife.el.header.addClass('fixed').removeClass('hidden');

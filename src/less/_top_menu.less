@@ -123,7 +123,8 @@
     top: 0px;
     
     &.active {
-      position: absolute;
+      height: auto;
+      overflow: visible;
       background-color: rgba(35,35,35,1);
       border-bottom: 3px solid @hacklivet-red;
       .animation(aboutMe, 100ms, 0s, linear, forwards);
@@ -131,7 +132,7 @@
     .about-me-centered {
       position: relative;
       margin: 0 auto;
-      padding: 50px 0 0 0;
+      padding: 80px 0 0 0;
       width: 950px;
       .author-bio {
           width: 49%;

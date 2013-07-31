@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: auto;
-  font-family: @droidSans;    
+  font-family: @droidSans;
 }
 
 a {
@@ -25,6 +25,9 @@ a {
     &:hover {
       text-decoration: none;
     }
+    &:visited {
+      color: rgba(0,0,0,0.8);
+    }
   }
 }
 
@@ -32,6 +35,8 @@ a {
 .content-wrapper {
   position: relative;
   height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 
   @import "_top_menu";
 
@@ -77,13 +82,18 @@ a {
         }
         &.new {
           .linear-gradient(fadein(@magentaPurple, 20%), fadein(@orangeFaded, 20%), top-diagonal);
-        }                        
+        }
       }
       &:nth-child(5),
       &:nth-child(6),
       &:nth-child(7) {
         display: none;
-      }      
+      }
+      &:nth-child(1n+4) {
+        .ribbon {
+          display: none;
+        }
+      }
       @media @moma-bear {
         vertical-align: top;
         overflow: hidden;
@@ -108,11 +118,13 @@ a {
           }
         }
         &:nth-child(2) {
+          border-left: 3px solid rgba(0,0,0,1);
          .child-overlay {
             .linear-gradient(@purpleNurple, @magentaPurple, top-diagonal);
           } 
         }
         &:nth-child(3) {
+          border-left: 3px solid rgba(0,0,0,1);
           .child-overlay {
             .linear-gradient(@magentaPurple, @orangeFaded, top-diagonal);
           }         
@@ -120,7 +132,7 @@ a {
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
-          height: 400px;
+          height: 500px;
           float: left;
           @media @papa-bear {
             &:hover {
@@ -131,10 +143,14 @@ a {
                 display: none;
               }
               article {
-                .animation(jumphover, 300ms, 0s, ease, forwards);
               }
             }
-          }          
+          }
+
+          .wp-post-image {
+            margin-left: -27%;
+          }
+
           article{
             h1 {
               letter-spacing: 0.5px;
@@ -144,7 +160,7 @@ a {
               a {
                 color: rgba(255,255,255,0.95);
               }
-              word-wrap: break-word;  
+              word-wrap: break-word;
             }
             .date-and-author {
               color: rgba(255,255,255,0.5);
@@ -223,10 +239,11 @@ a {
             bottom: auto;
             background-color: #FFFFFF;
             box-shadow: 0 0 0 0 rgba(255,255,255,1);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             h1 {
               font-weight: normal;
               color: rgba(0,0,0,0.6);
+              text-shadow: none;
             }
             .date-and-author {
               color: rgba(0,0,0,0.4);
@@ -240,7 +257,7 @@ a {
               color: fadeout(@text, 20%);
             }
           }
-        }                
+        }
       }
       @media @maxi-bear {
         &:nth-child(1),
@@ -276,7 +293,7 @@ a {
           margin-right: 0;
         }
       }
-    }    
+    }
   }
 }
 

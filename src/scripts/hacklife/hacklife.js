@@ -82,29 +82,27 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             $(this).child();
         },
         toggleHeader : function () {
-            if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight <
+
+            /**if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight <
                 hacklife.el.browserWindow.scrollTop()) {
-                hacklife.el.header.addClass('hidden');
-                hacklife.taglineEffectClose();
             }
+
             if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight >
                 hacklife.el.browserWindow.scrollTop()) {
-                hacklife.el.header.removeClass('hidden');
-            }
+            }**/
+
             if(!hacklife.el.header.hasClass('static-fixed') &&
                 hacklife.el.browserWindow.scrollTop() > 480) {
-                if(hacklife.gvar.currentScrollHeight < hacklife.el.browserWindow.scrollTop()) {
-                    hacklife.el.header.addClass('hidden');
-                    hacklife.taglineEffectClose();
-                }
                 if(hacklife.gvar.currentScrollHeight > hacklife.el.browserWindow.scrollTop()) {
-                    hacklife.el.header.addClass('fixed').removeClass('hidden');
+                    hacklife.el.header.addClass('fixed');
                 }
             }
+
             if(!hacklife.el.header.hasClass('static-fixed') &&
                 hacklife.el.browserWindow.scrollTop() <= 480) {
                 hacklife.el.header.removeClass('fixed');
             }
+
             hacklife.gvar.currentScrollHeight = hacklife.el.browserWindow.scrollTop();
         },
         keyPressController : function (event) {

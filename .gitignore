@@ -1,4 +1,5 @@
-src/scripts/configure.js
+src/scripts/*config.js
+src/scripts/lib/config.js
 src/css/*.css
 node_modules
 *.DS_Store

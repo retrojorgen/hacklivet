@@ -15,7 +15,7 @@
   &.fixed {
     position: fixed;
     top: 0;
-    margin-top: 0;
+    margin-top: -60px;
     z-index: 10000;
     background-color: rgba(255,255,255,0.9);
     height: 60px;
@@ -99,7 +99,7 @@
         font-style: italic;
         font-weight: normal;
         width: 105px;
-        padding-top: 8px;
+        padding-top: 4px;
         text-align: left;
         border-bottom: 3px solid rgba(255,0,0,0.9);
       }
@@ -116,14 +116,13 @@
     }
   }
   .about-me-wrapper {
-    position: absolute;
-    height: 0;
+    position: fixed;
     overflow: hidden;
     width: 100%;
-    top: 0px;
+    top: 0;
+    height: 0;
     
     &.active {
-      height: auto;
       overflow: visible;
       background-color: rgba(35,35,35,1);
       border-bottom: 3px solid @hacklivet-red;

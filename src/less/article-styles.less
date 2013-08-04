@@ -34,6 +34,7 @@ a {
   }
 }
 
+
 .content-wrapper {
   position: relative;
   height: 100%;
@@ -61,7 +62,7 @@ a {
         }
       }
       .hack-livet-tagline {
-        font-size: 0.8em;
+        font-size: @baby;
       }
     }
   }
@@ -82,13 +83,43 @@ a {
       max-width: 900px;
       position: relative;
       margin: 0 auto;
+      .wp-caption {
+        background-color: rgba(0,0,0,0.1);
+        margin: 0 0 10px 0;
+        padding: 0;
 
-      .wp-post-image { // this is naughty
-        width: 100%;
-        @media @moma-bear {
+        .wp-post-image { // this is naughty
+          width: 100%;
           margin: 0;
-          max-width: 900px;
+          line-height: 0;
+          @media @moma-bear {
+            max-width: 900px;
+          }
         }
+        p {
+            text-align: right;
+            color: rgba(0,0,0,0.8);
+            line-height: 1.4em;
+            padding: 0em 1.1em 0.5em 1.1em;
+            font-size: @baby;
+            background: none;
+            &:first-of-type {
+              &:first-letter {
+                text-align: right;
+                color: rgba(0,0,0,0.8);
+                line-height: auto;
+                display: inline;
+                float:none;
+                background: none;
+                padding-left: 0;
+                padding-right: 0;
+                font-family: @domine;
+                font-size: @baby;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
       }
       article {
 
@@ -121,7 +152,7 @@ a {
           display: block;
           text-align: center;
           position: relative;
-          font-size: 0.8em;
+          font-size: @baby;
           color: rgba(0,0,0,0.4);
           padding: 0 1.1em 0em 1.1em;
 
@@ -150,13 +181,15 @@ a {
           font-weight: normal;
 
           @media @moma-bear {
+            font-family: @domine, serif;
             color: rgba(0,0,0,0.4);
             font-size: 1.8em;
           }
         }
         h3 {
-          font-family: @domine, serif;;
+          font-family: @domine, serif;
           margin-top: 2em;
+          color: rgba(0,0,0,0.8);
           padding-left: 1em;
           padding-right: 1em;
           font-size: 1.5em;
@@ -198,6 +231,7 @@ a {
         }
         img {
           max-width: 100%;
+          height: auto;
           &.block {
             display: block;
           }
@@ -286,6 +320,7 @@ a {
           }
         }
         #disqus_thread {
+          margin-top: 10px;
           padding: 0 0.4em 0 0.4em;
 
           @media @brother-bear {
@@ -293,6 +328,7 @@ a {
           }
           
           @media @moma-bear {
+            margin-top: 60px;
             padding: 0 4em 0 4em;
           }
         }
@@ -321,5 +357,8 @@ a {
   @media @brother-bear {
     left: 20px;
     padding: 40px 0 0 0;
-  }  
+  }
+}
+#sidebar {
+  display: none;
 }

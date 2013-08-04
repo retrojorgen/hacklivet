@@ -27,13 +27,18 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             galleryImage : $('.gallery-row img'),
             articleP : $('article p'),
             openSlideMenu : $('.open-slide-menu'),
-            child : $('.child')
+            child : $('.child'),
+            wpCaption : $('.wp-caption')
         },
         init : function (config) {
             config = config || hacklife.gvar.defaultConfig;
             hacklife.bindUIElements();
             hacklife.makeVideosFluidWidth();
             hacklife.findVideo();
+            hacklife.removeAttributes();
+        },
+        removeAttributes : function () {
+            hacklife.el.wpCaption.removeAttr('style');
         },
         makeVideosFluidWidth : function () {
             hacklife.el.articleP.fitVids();
@@ -82,27 +87,6 @@ define(['jquery', 'jquery.fitvids.require'], function($,fitvids) {
             $(this).child();
         },
         toggleHeader : function () {
-
-            /**if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight <
-                hacklife.el.browserWindow.scrollTop()) {
-            }
-
-            if(hacklife.el.header.hasClass('static-fixed') && hacklife.gvar.currentScrollHeight >
-                hacklife.el.browserWindow.scrollTop()) {
-            }**/
-
-            if(!hacklife.el.header.hasClass('static-fixed') &&
-                hacklife.el.browserWindow.scrollTop() > 480) {
-                if(hacklife.gvar.currentScrollHeight > hacklife.el.browserWindow.scrollTop()) {
-                    hacklife.el.header.addClass('fixed');
-                }
-            }
-
-            if(!hacklife.el.header.hasClass('static-fixed') &&
-                hacklife.el.browserWindow.scrollTop() <= 480) {
-                hacklife.el.header.removeClass('fixed');
-            }
-
             hacklife.gvar.currentScrollHeight = hacklife.el.browserWindow.scrollTop();
         },
         keyPressController : function (event) {

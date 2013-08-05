@@ -2,4 +2,5 @@ src/scripts/*config.js
 src/scripts/lib/config.js
 src/css/*.css
 node_modules
+distro
 *.DS_Store

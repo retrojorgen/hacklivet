@@ -4,17 +4,24 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        /**
-        requirejs: {
-            compile: {
-                    options: {
-                    baseUrl: "path/to/base",
-                    mainConfigFile: "path/to/config.js",
-                    out: "path/to/optimized.js"
-                }
+        copy: {
+            css: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/img/',
+                    src: ['*.jpg', '*.png'],
+                    dest: 'distro/img/'
+                }]
+            },
+            javascript: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/scripts/lib/',
+                    src: ['require.minified.js'],
+                    dest: 'distro/js'
+                }]
             }
         },
-		**/
         less: {
             production: {
                 options: {
@@ -22,8 +29,8 @@ module.exports = function(grunt) {
                     yuicompress: true
                 },
                 files: {
-                    'src/css/article-styles.css': 'src/less/article-styles.less',
-                    'src/css/styles.css': 'src/less/styles.less'
+                    'distro/css/article-styles.css': 'src/less/article-styles.less',
+                    'distro/css/styles.css': 'src/less/styles.less'
                 }
             }
         },
@@ -59,14 +66,34 @@ module.exports = function(grunt) {
                     document: true
                 }
             }
+        },
+        clean : {
+            distro : {
+                src : ['distro']
+            }
+        },
+        requirejs: {
+            compile: {
+                options: {
+                    almond: true,
+                    wrap: true,
+                    name: 'config',
+                    baseUrl: 'src/scripts/lib',
+                    mainConfigFile: 'src/scripts/config.js',
+                    out: 'distro/js/hacklife.js'
+                }
+            }
         }
     });
 
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'less']);
+    grunt.registerTask('default', ['clean', 'jshint', 'less', 'copy', 'requirejs']);
     grunt.registerTask('test', ['jshint']);
 };

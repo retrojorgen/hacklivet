@@ -1,100 +1,63 @@
 .top-menu {
-  position: fixed;
-  margin-top: 0;
+  position: relative;
   top: 0;
+  margin-top: -60px;
   z-index: 10000;
   background-color: #151426;
   text-align: center;
-  vertical-align: middle;
   width: 100%;
   margin: 0;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,1);
   display: block;
 
-  &.fixed {
-    position: fixed;
-    top: 0;
-    margin-top: -60px;
-    z-index: 10000;
-    background-color: rgba(255,255,255,0.9);
-    height: 60px;
-    .top-menu-centered {
-      .hack-livet-logo {
-        font-size: 2em;
-        @media @moma-bear {
-          font-size: 3.2em;
-        }
-      }
-      .hack-livet-tagline {
-        font-size: 0.8em;
-      }
-    }
-  }
-
-  &.hidden {
-    display: none;
-  }
-
-  @media @moma-bear {
-    top: auto;
-    position: absolute;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 100px;
-    margin-top: 500px;
-    padding: 0;
-    /* Adjustment classes */
-
-  }
-  @media @maxi-bear {
-    margin-top: 500px;
-  }
-  .top-menu-centered {
-    margin: 0 auto;
-    margin-left: 0;
-    display: inline-block;
+/** Start of .frontpage override **/
+  &.frontpage {
     @media @moma-bear {
-      margin-left: 27px;
-    }
-
-    .hack-livet-logo {
-      font-size: 2em;
+      top: auto;
+      position: absolute;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+      height: 100px;
+      margin-top: 500px;
       padding: 0;
-      margin: 0;
-      display: inline;
-      color: rgba(0,0,0,1);
+      /* Adjustment classes */
+
+    }
+    @media @maxi-bear {
+      margin-top: 500px;
+    }
+    .hack-livet-logo {
       font-family: @cherrySwash;
       font-weight: normal;
-      letter-spacing: -3px;
-      float: left;
-      text-shadow:2px 2px rgba(255,0,0,0.2);
+      letter-spacing: 0.5px;
+      text-shadow:1px 1px rgba(255,0,0,0.2);
+      font-size: 3em;
+      color: rgba(0,0,0,1);
+      line-height: normal;
+      a {
+        color: rgba(0,0,0,1);
+      }      
       //.animation(colorcycle, 10s, 0, infinite);
       @media @brother-bear {
+        letter-spacing: -3px;
         font-size: 3em;
       }
       @media @moma-bear {
+        text-shadow:2px 2px rgba(255,0,0,0.2);
         font-size: 5em;
 
       }
-      &.active {
-        a {
-          position: relative;
-          z-index: 10001;
-          color: @inverse-text;
-        }
-      }      
     }
 
     .hack-livet-tagline {
       display: none;
       @media @brother-bear {
         display: inline-block;
-        float: left;
         font-size: 0.8em;
-        margin-left: 1.8em;
+        margin-left: 0.5em;
         color : rgba(0,0,0,0.6);
         font-style: italic;
         font-weight: normal;
@@ -113,6 +76,51 @@
           z-index: 10001;
           color: @inverse-text;
       }
+    }
+  }
+/** End of .frontpage override **/
+
+  .hack-livet-logo {
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      font-family: @cherrySwash;
+      font-weight: normal;
+      font-size: 2em;
+      @media @brother-bear {
+        font-size: 2.5em;
+        text-shadow:1px 1px rgba(255,0,0,0.2);
+      }
+      @media @moma-bear {
+        font-size: 3em;
+      }
+  }
+  .hack-livet-tagline {
+      margin: 1em 0 0 0.5em;
+      padding: 0;
+      display: inline-block;
+      font-family : @domine;
+      font-weight: normal;
+      font-size: 0.8em;
+      font-style: italic;
+      color : rgba(0,0,0,0.6);
+      border-bottom: 2px solid rgba(255,0,0,0.9);
+      vertical-align: top;
+      @media @brother-bear {
+        font-size: 1em;
+        margin-top: 1.1em;
+      }
+      @media @moma-bear {
+        font-size: 1.1em;
+      }
+  }
+
+  .top-menu-centered {
+    margin: 0 auto 0 auto;
+    display: block;
+    max-width: 900px;
+    vertical-align: top;
+    @media @moma-bear {
     }
   }
   .about-me-wrapper {

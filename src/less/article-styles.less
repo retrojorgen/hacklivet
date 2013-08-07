@@ -48,7 +48,35 @@ a {
 
     @media @moma-bear {
     }
-    
+    .share-wrapper {
+      position: relative;
+      .share-container {
+        display: none;
+        @media @moma-bear {
+          display: block;
+          position: absolute;
+          right: -18px;
+          width: 66px;
+          padding: 5px;
+          .linear-gradient(fadein(@cyanBlue, 100%), fadein(@purpleNurple, 100%), top-diagonal);
+        }
+        &:after {
+          @media @moma-bear {
+            position: absolute;
+            bottom: -16px;
+            right: 0;
+            left: auto;
+            content: "";
+            width: 18px;
+            height: 16px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: -20px -3px;
+            background-image: url('../img/ribbontap.png');
+          }
+        }
+      }
+    }
     .child {
       width: 100%;
       max-width: 900px;
@@ -321,14 +349,6 @@ a {
 }
 .search {
   display : none;
-}
-
-.fb-like {
-  padding: 20px 0 0 0;
-  @media @brother-bear {
-    left: 20px;
-    padding: 40px 0 0 0;
-  }
 }
 .sidebar {
   display: none;

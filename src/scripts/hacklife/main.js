@@ -1,4 +1,4 @@
-define(["jquery", "hacklife/hacklife", "hacklife/facebookLike"],
+define(["jquery", "hacklife/hacklife", "hacklife/facebookLike", "hacklife/twitterTweet"],
 function() {
 	
 });

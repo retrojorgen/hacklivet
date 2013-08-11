@@ -82,17 +82,19 @@
       }
   }
   .hack-livet-tagline {
-      margin: 1em 0 0 0.5em;
-      padding: 0;
-      display: inline-block;
-      font-family : @domine;
-      font-weight: normal;
-      font-size: 0.8em;
-      font-style: italic;
-      color : rgba(0,0,0,0.6);
-      border-bottom: 2px solid rgba(255,0,0,0.9);
-      vertical-align: top;
+      display: none;
+
       @media @brother-bear {
+        margin: 1em 0 0 0.5em;
+        padding: 0;
+        font-family : @domine;
+        font-weight: normal;
+        font-size: 0.8em;
+        font-style: italic;
+        color : rgba(0,0,0,0.6);
+        border-bottom: 2px solid rgba(255,0,0,0.9);
+        vertical-align: top;
+        display: inline-block;
         font-size: 1em;
         margin-top: 1.3em;
       }
@@ -119,65 +121,67 @@
       transform: rotate(30deg);
     }
   }
-  .about-me-wrapper {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    top: 0;
-    height: 0;
-    
-    &.active {
-      overflow: visible;
-      background-color: rgba(35,35,35,1);
-      border-bottom: 3px solid @hacklivet-red;
-      .animation(aboutMe, 100ms, 0s, linear, forwards);
-    }
-    .about-me-centered {
-      position: relative;
-      margin: 0 auto;
-      padding: 80px 0 0 0;
-      width: 950px;
-      .author-bio {
-          width: 49%;
-          display: inline-block;
-          max-width: 400px;
-          padding: 12.5px;
-          vertical-align: top;
-          img {
-            border-bottom: 3px solid @hacklivet-red;
+}
+
+.about-me-wrapper {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  top: 0;
+  height: 0;
+  z-index: 5000;
+  
+  &.active {
+    overflow: visible;
+    background-color: rgba(35,35,35,1);
+    border-bottom: 3px solid @hacklivet-red;
+    .animation(aboutMe, 100ms, 0s, linear, forwards);
+  }
+  .about-me-centered {
+    position: relative;
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+    width: 950px;
+    .author-bio {
+        width: 49%;
+        display: inline-block;
+        max-width: 400px;
+        padding: 12.5px;
+        vertical-align: top;
+        img {
+          border-bottom: 3px solid @hacklivet-red;
+        }
+        p {
+          display: block;
+          position: relative;
+          margin: 10px 0 10px 0;
+          color: darken(@inverse-text, 50%);
+          text-align: left;
+          font-size: 1em;
+          line-height: 1.3em;
+          
+          &:first-line {
+              font-size : 1.2em;
+              color: darken(@inverse-text, 20%);
           }
-          p {
-            display: block;
-            position: relative;
-            margin: 10px 0 10px 0;
-            color: darken(@inverse-text, 50%);
-            text-align: left;
-            font-size: 1em;
-            line-height: 1.3em;
-            
-            &:first-line {
-                font-size : 1.2em;
-                color: darken(@inverse-text, 20%);
-            }
-          }
-      }
+        }
     }
-    .about-me-close-button {
-      position: absolute;
-      top: 0.5em;
-      border: 3px solid rgb(72, 72, 72);
-      border-radius: 40px 40px 40px 40px;
-      right: 0.5em;
-      font-size: 1.4em;
-      width: 40px;
-      background-color: rgba(146, 146, 146, 1);
-      height: 40px;
-      color: rgb(72, 72, 72);
-      padding: 0px;
-      &:hover {
-        background-color: rgba(255, 255, 255, 1);
-        border: 3px solid @hacklivet-red;
-      }
-    }    
-  }         
+  }
+  .about-me-close-button {
+    position: absolute;
+    top: 0.5em;
+    border: 3px solid rgb(72, 72, 72);
+    border-radius: 40px 40px 40px 40px;
+    right: 0.5em;
+    font-size: 1.4em;
+    width: 40px;
+    background-color: rgba(146, 146, 146, 1);
+    height: 40px;
+    color: rgb(72, 72, 72);
+    padding: 0px;
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+      border: 3px solid @hacklivet-red;
+    }
+  }
 }

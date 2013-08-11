@@ -95,6 +95,7 @@ a {
             max-width: 900px;
           }
         }
+
         p {
             text-align: right;
             color: rgba(0,0,0,0.8);
@@ -169,6 +170,7 @@ a {
             color: rgba(0,0,0,0.8);
           }
         }
+
         h2 {
           text-align: center;
           margin: 0;
@@ -185,6 +187,7 @@ a {
             font-size: 1.8em;
           }
         }
+        
         h3 {
           font-family: @domine, serif;
           margin-top: 2em;
@@ -347,9 +350,35 @@ a {
 .clear {
   clear: both;
 }
+
 .search {
   display : none;
 }
+
 .sidebar {
   display: none;
+}
+
+.fb-like {
+  z-index: 150;
+  margin-left: 20px;
+
+  &.desktop {
+    display: none;
+  }
+
+  &.mobile {
+    vertical-align: top;
+    margin-top: 14px;
+    display: inline-block;
+    @media @brother-bear {
+      margin-top: 20px;
+    }
+    @media @moma-bear {
+      margin-top: 25px;
+    }
+  }
+  &.share-content {
+    margin-left: 0;
+  }
 }

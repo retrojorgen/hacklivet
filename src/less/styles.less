@@ -320,4 +320,22 @@ a {
 .fb-like {
   z-index: 150;
   margin-left: 20px;
+
+  &.desktop {
+    display: none;
+
+    @media @moma-bear {
+      display: inline-block;
+    }
+  }
+
+  &.mobile {
+    vertical-align: top;
+    margin-top: 14px;
+    display: inline-block;
+
+    @media @moma-bear {
+      display: none;
+    }
+  }
 }

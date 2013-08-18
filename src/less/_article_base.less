@@ -4,6 +4,30 @@ article {
   z-index: 100;
   margin-top: -50px;
   background-color: rgba(255,255,255,1);
+  .categories-and-comments {
+    text-align: left;
+    .post-categories {
+      margin: 0;
+      text-align: left;
+      display: inline-block;
+      li {
+        background: fadein(@purpleNurple, 40%);
+        margin: 0 3px 0 0;
+        a {
+          color: @inverse-text;
+          padding: 3px;
+        }
+      }
+    }
+    .post-tags {
+      a {
+        margin: 0 3px 0 0;
+        padding: 3px;
+        color: @inverse-text;
+        background: fadein(@cyanBlue, 40%);
+      }
+    }
+  }
 
   @media @moma-bear {
     margin-top: 0;

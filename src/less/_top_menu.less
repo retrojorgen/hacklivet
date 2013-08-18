@@ -39,23 +39,22 @@
     }
 
     .hack-livet-tagline {
-      display: none;
       @media @brother-bear {
-        display: inline-block;
-        font-size: 0.8em;
-        margin-left: 0.5em;
-        color : rgba(0,0,0,0.6);
-        font-style: italic;
-        font-weight: normal;
-        width: 105px;
-        padding-top: 4px;
-        text-align: left;
-        border-bottom: 3px solid rgba(255,0,0,0.9);
+        margin-top: 1.1em;
       }
       @media @moma-bear {
+        display: inline-block;
         margin-left: 2em;
         cursor : pointer;
         font-size: 1em;
+        width: 105px;
+        padding-top: 4px;
+        border-bottom: 3px solid rgba(255,0,0,0.9);
+        text-align: left;
+        color : rgba(0,0,0,0.6);
+        font-style: italic;
+        font-weight: normal;
+
       }
       &.active {
           position: relative;

@@ -1,0 +1,8 @@
+{
+    "name": "Hacklivet",
+    "author": "Jorgen Jacobsen",
+
+    "devDependencies": {
+        "grunt": "~0.4.1"
+    }
+}

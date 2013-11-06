@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: auto;
-  font-family: @droidSans;
+  font-family: @bodyFont;
 }
 
 a {
@@ -42,12 +42,14 @@ a {
 
   .article-wrapper {
     max-width:100%;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     text-align: center;
     @media @brother-bear {
+      width: 80%;
     }
     @media @moma-bear {
+      width: 100%;
       padding-top: 47px;
       padding-top: 0;
     }
@@ -59,6 +61,7 @@ a {
       position:relative;
       width: 100%;
       background-color : rgba(0,0,0,1);
+      margin-bottom: 20px;
 
       &:nth-child(1) {
       }
@@ -90,16 +93,23 @@ a {
           .linear-gradient(fadein(@purpleNurple, 20%), fadein(@magentaPurple, 20%), top-diagonal);
         }
         &.new {
-          .linear-gradient(fadein(@magentaPurple, 20%), fadein(@orangeFaded, 20%), top-diagonal);
+          .linear-gradient(fadein(@magentaPurple, 20%), fadein(@cyanBlue, 20%), top-diagonal);
         }
       }
       &:nth-child(1),
       &:nth-child(2),
       &:nth-child(3) {
+
         @media @moma-bear {
+
           article {
-            top: 300px;
-            height: 200px;
+            top: 250px;
+            height: 250px;
+
+            h1 {
+              font-size: 2.2em;
+            }
+
             .categories-and-comments {
               padding : 0 20px 0 20px;
             }
@@ -107,9 +117,20 @@ a {
           .date-and-author {
             position: absolute;
             bottom: 0;
+            width: 100%;
+            text-align: right;
           }
           .wp-post-image {
             max-height: 500px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            position: relative;
+            z-index: 20;
+            opacity: 0.3;
+          }
+
+          .child-overlay {
+            z-index: 10;
           }
         }
       }
@@ -119,6 +140,8 @@ a {
         display: none;
       }      
       &:nth-child(1n+4) {
+        margin-bottom: 20px;
+
         .ribbon {
           display: none;
         }
@@ -127,6 +150,8 @@ a {
             width: 100%;
             height: auto;
             margin-left: 0;
+            -webkit-filter: sepia(0.6);
+            filter: sepia(0.6);
           }
         }
       }
@@ -141,7 +166,7 @@ a {
           &:hover {
             h1 {
               a {
-                background-color: rgba(255,0,0,0.9);
+                background-color: rgba(79,33,108,0.9);
               }
             }
           }
@@ -150,20 +175,39 @@ a {
         &:nth-child(1) {
           margin-top: 0;
           .child-overlay {
-            .linear-gradient(@cyanBlue, @purpleNurple, top-diagonal);
+            .linear-gradient(fadein(@cyanBlue, 40%), fadein(@purpleNurple, 40%), top-diagonal);
+            @media @papa-bear {
+              .linear-gradient(fadein(@cyanBlue, 20%), fadein(@purpleNurple, 20%), top-diagonal);
+            }
+            &:hover {
+              .linear-gradient(darken(@cyanBlue, 20%), darken(@purpleNurple, 20%), top-diagonal);
+            }
           }
         }
         &:nth-child(2) {
           border-left: 3px solid rgba(0,0,0,1);
          .child-overlay {
-            .linear-gradient(@purpleNurple, @magentaPurple, top-diagonal);
+            .linear-gradient(fadein(@purpleNurple, 40%), fadein(@magentaPurple, 40%), top-diagonal);
+            @media @papa-bear {
+              .linear-gradient(fadein(@purpleNurple, 20%), fadein(@magentaPurple, 20%), top-diagonal);
+            }
+
+            &:hover {
+              .linear-gradient(darken(@purpleNurple, 20%), darken(@magentaPurple, 20%), top-diagonal);
+            }
           } 
         }
         &:nth-child(3) {
           border-left: 3px solid rgba(0,0,0,1);
           .child-overlay {
-            .linear-gradient(@magentaPurple, @orangeFaded, top-diagonal);
-          }         
+            .linear-gradient(fadein(@cyanBlue, 40%), fadein(@purpleNurple, 40%), top-diagonal);
+            @media @papa-bear {
+              .linear-gradient(fadein(@cyanBlue, 20%), fadein(@purpleNurple, 20%), top-diagonal);
+            }
+            &:hover {
+              .linear-gradient(darken(@cyanBlue, 20%), darken(@purpleNurple, 20%), top-diagonal);
+            }
+          }
         }
         &:nth-child(1),
         &:nth-child(2),
@@ -174,10 +218,24 @@ a {
             top: 0;
           }
           @media @papa-bear {
+            .child-overlay {
+              z-index: 20;
+            }
+
+            .wp-post-image {
+              z-index: 10;
+              opacity: 0.8;
+            }
+
+            article {
+
+              h1 {
+                font-size: 2.7em;
+              }
+            }
             &:hover {
               .child-overlay {
                 background-image: none;
-                background-color: rgba(64, 138, 208, 0.0);
                 .transition(box-shadow 100ms linear 0s);
                 display: none;
               }
@@ -191,7 +249,8 @@ a {
               letter-spacing: 0.5px;
               padding-left: 20px;
               padding-right: 20px;
-              font-size: 1.7em;
+              font-family: @headerFont;
+              font-weight: bold;
               a {
                 color: rgba(255,255,255,0.95);
               }
@@ -200,7 +259,7 @@ a {
             .date-and-author {
               color: rgba(255,255,255,0.5);
               text-align: right;
-              padding: 20px;
+              padding: 0 20px 20px 20px;
               font-size: @baby;
               .author {
                 a {
@@ -238,7 +297,7 @@ a {
         &:nth-child(6),
         &:nth-child(7) {
             display: inline-block;
-            margin-top: 140px;
+            margin-top: 20px;
         }
         &:nth-child(1n+4) {
           background-color: #FFFFFF;
@@ -251,7 +310,7 @@ a {
               p {
                 a {
                   color: #FFFFFF;
-                  background-color: rgba(255,0,0,0.8);
+                  background-color: rgba(79,33,108,0.8);
                 }
               }
             }
@@ -268,9 +327,11 @@ a {
             box-shadow: 0 0 0 0 rgba(255,255,255,1);
             margin-bottom: 10px;
             h1 {
-              font-weight: normal;
+              font-family: @headerFont;
+              font-weight: bold;
               color: rgba(0,0,0,0.6);
               text-shadow: none;
+              text-spacing: 0;
             }
             .date-and-author {
               color: rgba(0,0,0,0.4);
@@ -295,7 +356,7 @@ a {
       }
       .child-overlay {
         display: none;
-        @media @papa-bear {
+        @media @moma-bear {
           display: block;
           position: absolute;
           width: 100%;
@@ -332,21 +393,14 @@ a {
   z-index: 150;
   margin-left: 20px;
 
-  &.desktop {
-    display: none;
-
-    @media @moma-bear {
-      display: inline-block;
-    }
-  }
-
   &.mobile {
     vertical-align: top;
     margin-top: 14px;
     display: inline-block;
 
     @media @moma-bear {
-      display: none;
+
+      margin-top: 27px;
     }
   }
 }

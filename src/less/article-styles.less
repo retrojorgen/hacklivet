@@ -17,7 +17,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: auto;
-  font-family: @droidSans;
+  font-family: @bodyFont;
 }
 
 a {
@@ -113,7 +113,7 @@ a {
                 background: none;
                 padding-left: 0;
                 padding-right: 0;
-                font-family: @domine;
+                font-family: @logoFont;
                 font-size: @baby;
                 margin: 0;
                 padding: 0;
@@ -122,20 +122,36 @@ a {
           }
       }
       article {
+
         .alignright {
-          float : right;
-          width: auto;
+          @media @moma-bear {
+            float : right;
+            width: auto;
+            margin: 0 4em 1em 1em;
+            max-width: 250px;
+            img {
+              width: auto;
+            }
+          }
         }
         .alignleft {
-          float: left;
-          width: auto;
+        @media @moma-bear {
+            float : right;
+            width: auto;
+            margin: 0 1em 1em 4em;
+            max-width: 250px;
+            img {
+              width: auto;
+            }
+          }
         }
+
         background-color: #FFFFFF;
         .box-sizing(border-box);
 
         h1 {
           margin: 0;
-          font-family: @domine, serif;
+          font-family: @headerFont;
           color: #000000;
           font-size: 2.2em;
           padding: 0.5em 0.2em 0.5em 0.2em;
@@ -189,14 +205,14 @@ a {
           font-weight: normal;
 
           @media @moma-bear {
-            font-family: @domine, serif;
+            font-family: @headerFont, serif;
             color: rgba(0,0,0,0.4);
             font-size: 1.8em;
           }
         }
         
         h3 {
-          font-family: @domine, serif;
+          font-family: @headerFont, serif;
           margin-top: 2em;
           color: rgba(0,0,0,0.8);
           padding-left: 1em;
@@ -225,7 +241,7 @@ a {
             &:first-letter {
               float:left;
               font-size:3em;
-              font-family: @cherrySwash;
+              font-family: @logoFont;
               color: rgba(255,255,255,1);
               padding: 4px;
               background-color: rgba(255,0,0,1);
@@ -270,7 +286,7 @@ a {
             &:first-of-type {
               &:first-letter {
                 float: none;
-                font-family: @droidSans;
+                font-family: @logoFont;
                 color: @hacklivet-red;
                 font-style: italic;
                 padding: 0 0 0 0;
@@ -370,19 +386,14 @@ a {
   z-index: 150;
   margin-left: 20px;
 
-  &.desktop {
-    display: none;
-  }
-
   &.mobile {
     vertical-align: top;
     margin-top: 14px;
     display: inline-block;
-    @media @brother-bear {
-      margin-top: 20px;
-    }
+
     @media @moma-bear {
-      margin-top: 25px;
+
+      margin-top: 27px;
     }
   }
   &.share-content {
